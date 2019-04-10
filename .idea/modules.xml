@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Seng301Assignment.iml" filepath="$PROJECT_DIR$/.idea/modules/Seng301Assignment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/seng301assignment-build.iml" filepath="$PROJECT_DIR$/.idea/modules/seng301assignment-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/epic-seng301-projectgit-build.iml" filepath="$PROJECT_DIR$/.idea/modules/epic-seng301-projectgit-build.iml" />
     </modules>
   </component>
 </project>
