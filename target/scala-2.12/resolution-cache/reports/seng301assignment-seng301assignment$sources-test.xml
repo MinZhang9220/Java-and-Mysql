@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="seng301assignment"
+		module="seng301assignment$sources"
+		revision="0.1"
+		conf="test"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
+		date="20190413160526"/>
+	<dependencies>
+		<module organisation="org.mockito" name="mockito-core">
+			<revision name="2.25.1" status="release" pubdate="20190316062844" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/mockito/mockito" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="11">
+				<license name="The MIT License" url="https://github.com/mockito/mockito/blob/master/LICENSE"/>
+				<metadata-artifact status="no" details="" size="2991" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.mockito/mockito-core/ivy-2.25.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/mockito/mockito-core/2.25.1/mockito-core-2.25.1.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="2.25.1" rev-constraint-default="2.25.1" rev-constraint-dynamic="2.25.1" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="mockito-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="480625" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.mockito/mockito-core/srcs/mockito-core-2.25.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/mockito/mockito-core/2.25.1/mockito-core-2.25.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.objenesis" name="objenesis">
+			<revision name="2.6" status="release" pubdate="20170621032837" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://objenesis.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="14">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3457" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.objenesis/objenesis/ivy-2.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="2.6" rev-constraint-default="2.6" rev-constraint-dynamic="2.6" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="objenesis" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="57063" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.objenesis/objenesis/srcs/objenesis-2.6-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.bytebuddy" name="byte-buddy">
+			<revision name="1.9.7" status="release" pubdate="20190111112514" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="16">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9414" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/net.bytebuddy/byte-buddy/ivy-1.9.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.9.7/byte-buddy-1.9.7.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="1.9.7" rev-constraint-default="1.9.7" rev-constraint-dynamic="1.9.7" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="byte-buddy" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1144991" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/net.bytebuddy/byte-buddy/srcs/byte-buddy-1.9.7-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.9.7/byte-buddy-1.9.7-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.bytebuddy" name="byte-buddy-agent">
+			<revision name="1.9.7" status="release" pubdate="20190111112453" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="10">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="8558" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/net.bytebuddy/byte-buddy-agent/ivy-1.9.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.9.7/byte-buddy-agent-1.9.7.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="1.9.7" rev-constraint-default="1.9.7" rev-constraint-dynamic="1.9.7" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="byte-buddy-agent" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="21130" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/net.bytebuddy/byte-buddy-agent/srcs/byte-buddy-agent-1.9.7-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.9.7/byte-buddy-agent-1.9.7-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.xerial" name="sqlite-jdbc">
+			<revision name="3.25.2" status="release" pubdate="20181001131836" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="5">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3279" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.xerial/sqlite-jdbc/ivy-3.25.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.25.2/sqlite-jdbc-3.25.2.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="3.25.2" rev-constraint-default="3.25.2" rev-constraint-dynamic="3.25.2" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="sqlite-jdbc" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="7015351" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.xerial/sqlite-jdbc/srcs/sqlite-jdbc-3.25.2-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.25.2/sqlite-jdbc-3.25.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.12.8" status="release" pubdate="20181204231556" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.8/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="1">
+				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2656" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.8/scala-library-2.12.8.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="2.12.8" rev-constraint-default="2.12.8" rev-constraint-dynamic="2.12.8" callerrev="0.1" extra-info.apiURL="http://www.scala-lang.org/api/2.12.8/"/>
+				<artifacts>
+					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1020924" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.8/scala-library-2.12.8-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="cucumber-java">
+			<revision name="4.2.0" status="release" pubdate="20181030081416" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license"/>
+				<metadata-artifact status="no" details="" size="17486" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-java/ivy-4.2.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/cucumber-java/4.2.0/cucumber-java-4.2.0.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="4.2.0" rev-constraint-default="4.2.0" rev-constraint-dynamic="4.2.0" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="cucumber-java" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="442281" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-java/srcs/cucumber-java-4.2.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/cucumber-java/4.2.0/cucumber-java-4.2.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="cucumber-junit">
+			<revision name="4.2.0" status="release" pubdate="20181030081419" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="12">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license"/>
+				<metadata-artifact status="no" details="" size="17287" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-junit/ivy-4.2.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/cucumber-junit/4.2.0/cucumber-junit-4.2.0.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="4.2.0" rev-constraint-default="4.2.0" rev-constraint-dynamic="4.2.0" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="cucumber-junit" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="13345" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-junit/srcs/cucumber-junit-4.2.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/cucumber-junit/4.2.0/cucumber-junit-4.2.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="cucumber-core">
+			<revision name="4.2.0" status="release" pubdate="20181030081420" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="2">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license"/>
+				<metadata-artifact status="no" details="" size="19134" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-core/ivy-4.2.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/cucumber-core/4.2.0/cucumber-core-4.2.0.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="4.2.0" rev-constraint-default="4.2.0" rev-constraint-dynamic="4.2.0" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="cucumber-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="359028" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-core/srcs/cucumber-core-4.2.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/cucumber-core/4.2.0/cucumber-core-4.2.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="datatable">
+			<revision name="1.1.7" status="release" pubdate="20181027224616" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license"/>
+				<metadata-artifact status="no" details="" size="8647" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/datatable/ivy-1.1.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/datatable/1.1.7/datatable-1.1.7.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="1.1.7" rev-constraint-default="1.1.7" rev-constraint-dynamic="1.1.7" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="datatable" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="26572" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/datatable/srcs/datatable-1.1.7-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/datatable/1.1.7/datatable-1.1.7-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="datatable-dependencies">
+			<revision name="1.1.7" status="release" pubdate="20181027224617" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="7896" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/datatable-dependencies/ivy-1.1.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/datatable-dependencies/1.1.7/datatable-dependencies-1.1.7.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="1.1.7" rev-constraint-default="1.1.7" rev-constraint-dynamic="1.1.7" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="datatable-dependencies" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1496925" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/datatable-dependencies/srcs/datatable-dependencies-1.1.7-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/datatable-dependencies/1.1.7/datatable-dependencies-1.1.7-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="cucumber-expressions">
+			<revision name="6.2.0" status="release" pubdate="20181028113133" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/cucumber/cucumber-expressions-java" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license"/>
+				<metadata-artifact status="no" details="" size="5288" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-expressions/ivy-6.2.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/cucumber-expressions/6.2.0/cucumber-expressions-6.2.0.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="6.2.0" rev-constraint-default="6.2.0" rev-constraint-dynamic="6.2.0" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="cucumber-expressions" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="25856" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-expressions/srcs/cucumber-expressions-6.2.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/cucumber-expressions/6.2.0/cucumber-expressions-6.2.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="tag-expressions">
+			<revision name="1.1.1" status="release" pubdate="20171201225236" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/cucumber/tag-expressions-java" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="3">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license"/>
+				<metadata-artifact status="no" details="" size="3417" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/tag-expressions/ivy-1.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/tag-expressions/1.1.1/tag-expressions-1.1.1.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="tag-expressions" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3058" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/tag-expressions/srcs/tag-expressions-1.1.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/tag-expressions/1.1.1/tag-expressions-1.1.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="gherkin">
+			<revision name="5.1.0" status="release" pubdate="20180531004346" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/cucumber/gherkin-java" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="9">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license"/>
+				<metadata-artifact status="no" details="" size="3629" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/gherkin/ivy-5.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/gherkin/5.1.0/gherkin-5.1.0.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="5.1.0" rev-constraint-default="5.1.0" rev-constraint-dynamic="5.1.0" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="gherkin" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="44081" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/gherkin/srcs/gherkin-5.1.0-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/gherkin/5.1.0/gherkin-5.1.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="junit" name="junit">
+			<revision name="4.12" status="release" pubdate="20141205051743" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://junit.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="13">
+				<license name="Eclipse Public License 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
+				<metadata-artifact status="no" details="" size="3317" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/junit/junit/ivy-4.12.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="4.12" rev-constraint-default="4.12" rev-constraint-dynamic="4.12" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="junit" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="200355" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/junit/junit/srcs/junit-4.12-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.hamcrest" name="hamcrest-core">
+			<revision name="1.3" status="release" pubdate="20120710090802" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="15">
+				<license name="New BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2617" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.hamcrest/hamcrest-core/ivy-1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="1.3" rev-constraint-default="1.3" rev-constraint-dynamic="1.3" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="hamcrest-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="32624" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/org.hamcrest/hamcrest-core/srcs/hamcrest-core-1.3-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.cucumber" name="cucumber-html">
+			<revision name="0.2.7" status="release" pubdate="20180415230347" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license"/>
+				<metadata-artifact status="no" details="" size="3003" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-html/ivy-0.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/cucumber/cucumber-html/0.2.7/cucumber-html-0.2.7.pom"/>
+				<caller organisation="seng301assignment" name="seng301assignment$sources" conf="test, compile, runtime" rev="0.2.7" rev-constraint-default="0.2.7" rev-constraint-dynamic="0.2.7" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="cucumber-html" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="55285" time="0" location="/home/cosc/student/mzh73/.ivy2/cache/io.cucumber/cucumber-html/srcs/cucumber-html-0.2.7-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/cucumber/cucumber-html/0.2.7/cucumber-html-0.2.7-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

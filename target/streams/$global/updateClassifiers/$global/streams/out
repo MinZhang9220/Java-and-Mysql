@@ -1755,36 +1755,132 @@
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
 [debug] 	[NOT REQUIRED] io.cucumber#cucumber-java;4.2.0!cucumber-java.jar(src)
-[debug] 	[NOT REQUIRED] io.cucumber#cucumber-core;4.2.0!cucumber-core.jar(src)
-[debug] 	[NOT REQUIRED] io.cucumber#cucumber-html;0.2.7!cucumber-html.jar(src)
+[debug] no default ivy user dir defined: set to /home/cosc/student/mzh73/.ivy2
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.12.8!scala-library.jar(src)
+[debug] no default ivy user dir defined: set to /home/cosc/student/mzh73/.ivy2
+[debug] 	[NOT REQUIRED] io.cucumber#cucumber-core;4.2.0!cucumber-core.jar(src)
+[debug] no default ivy user dir defined: set to /home/cosc/student/mzh73/.ivy2
 [debug] 	[NOT REQUIRED] io.cucumber#tag-expressions;1.1.1!tag-expressions.jar(src)
+[debug] 	[NOT REQUIRED] io.cucumber#cucumber-html;0.2.7!cucumber-html.jar(src)
 [debug] 	[NOT REQUIRED] org.xerial#sqlite-jdbc;3.25.2!sqlite-jdbc.jar(src)
+[debug] no default ivy user dir defined: set to /home/cosc/student/mzh73/.ivy2
+[debug] no default ivy user dir defined: set to /home/cosc/student/mzh73/.ivy2
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default ivy user dir defined: set to /home/cosc/student/mzh73/.ivy2
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default cache defined: set to /home/cosc/student/mzh73/.ivy2/cache
+[debug] no default cache defined: set to /home/cosc/student/mzh73/.ivy2/cache
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default cache defined: set to /home/cosc/student/mzh73/.ivy2/cache
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] no default cache defined: set to /home/cosc/student/mzh73/.ivy2/cache
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] no default cache defined: set to /home/cosc/student/mzh73/.ivy2/cache
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] no default cache defined: set to /home/cosc/student/mzh73/.ivy2/cache
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (55ms)
+[debug] settings loaded (59ms)
+[debug] 	default cache: /home/cosc/student/mzh73/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] settings loaded (86ms)
+[debug] 	default cache: /home/cosc/student/mzh73/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
 [debug] 	[NOT REQUIRED] io.cucumber#datatable;1.1.7!datatable.jar(src)
-[debug] 	[NOT REQUIRED] io.cucumber#cucumber-expressions;6.2.0!cucumber-expressions.jar(src)
-[debug] 	[NOT REQUIRED] net.bytebuddy#byte-buddy-agent;1.9.7!byte-buddy-agent.jar(src)
+[debug] 	default cache: /home/cosc/student/mzh73/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
 [debug] 	[NOT REQUIRED] io.cucumber#datatable-dependencies;1.1.7!datatable-dependencies.jar(src)
+[debug] 	[NOT REQUIRED] io.cucumber#cucumber-expressions;6.2.0!cucumber-expressions.jar(src)
 [debug] 	[NOT REQUIRED] org.mockito#mockito-core;2.25.1!mockito-core.jar(src)
-[debug] 	[NOT REQUIRED] io.cucumber#cucumber-junit;4.2.0!cucumber-junit.jar(src)
-[debug] 	[NOT REQUIRED] junit#junit;4.12!junit.jar(src)
 [debug] 	[NOT REQUIRED] io.cucumber#gherkin;5.1.0!gherkin.jar(src)
+[debug] 	[NOT REQUIRED] net.bytebuddy#byte-buddy-agent;1.9.7!byte-buddy-agent.jar(src)
+[debug] 	[NOT REQUIRED] junit#junit;4.12!junit.jar(src)
 [debug] 	[NOT REQUIRED] org.objenesis#objenesis;2.6!objenesis.jar(src)
+[debug] 	[NOT REQUIRED] io.cucumber#cucumber-junit;4.2.0!cucumber-junit.jar(src)
 [debug] 	[NOT REQUIRED] org.hamcrest#hamcrest-core;1.3!hamcrest-core.jar(src)
 [debug] 	[NOT REQUIRED] net.bytebuddy#byte-buddy;1.9.7!byte-buddy.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.8!scala-reflect.jar(src)
-[debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.8!scala-compiler.jar(src)
+[debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(src)
+[debug] settings loaded (96ms)
 [debug] 	[NOT REQUIRED] jline#jline;2.14.6!jline.jar(src)
-[debug] :: resolution report :: resolve 226ms :: artifacts dl 7ms
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 compile produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-compile.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 runtime produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-runtime.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 test produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-test.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 provided produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-provided.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 optional produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-optional.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 compile-internal produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-compile-internal.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 runtime-internal produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-runtime-internal.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 test-internal produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-test-internal.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 plugin produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-plugin.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 pom produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-pom.xml
-[debug] 	report for seng301assignment#seng301assignment$sources;0.1 scala-tool produced in /home/cosc/student/gon12/IdeaProjects/epic-seng301-projectGIT/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-scala-tool.xml
-[debug] 	resolve done (226ms resolve - 7ms download)
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] 	default cache: /home/cosc/student/mzh73/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] including url: jar:file:/home/cosc/student/mzh73/.sbt/boot/scala-2.12.7/org.scala-sbt/sbt/1.2.8/ivy-2.3.0-sbt-cb9cc189e9f3af519f9f102e6c5d446488ff6832.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (78ms)
+[debug] 	default cache: /home/cosc/student/mzh73/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] settings loaded (102ms)
+[debug] 	default cache: /home/cosc/student/mzh73/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] :: resolution report :: resolve 496ms :: artifacts dl 132ms
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 compile produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-compile.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 runtime produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-runtime.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 test produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-test.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 provided produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-provided.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 optional produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-optional.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 compile-internal produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-compile-internal.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 runtime-internal produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-runtime-internal.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 test-internal produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-test-internal.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 plugin produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-plugin.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 pom produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-pom.xml
+[debug] 	report for seng301assignment#seng301assignment$sources;0.1 scala-tool produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/seng301assignment-seng301assignment$sources-scala-tool.xml
+[debug] 	resolve done (496ms resolve - 132ms download)
