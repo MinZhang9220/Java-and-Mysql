@@ -3,13 +3,20 @@
  *
  */
 
-package java;
+package function;
 
 import java.sql.*;
 
+
 public class Organisation {
 
-    private String organisationName;
+    protected String organisationName;
+
+    public Organisation(){}
+
+    public Organisation(String organisationName){
+        this.organisationName = organisationName;
+    }
 
     public void setOrganisationName(String organisationName){
         this.organisationName = organisationName;
@@ -54,9 +61,9 @@ public class Organisation {
      * @param connection
      * @return confirm_information
      */
-    public String createOrganisation(String organisationName,Connection connection){
+    public String[] createOrganisation(String organisationName, Connection connection){
 
-        String confirm_information;
+        String[] insertResult = new String[2];
 
         assert null != connection && organisationName != null : "connection and organisation name can not be null!";
         try {
@@ -66,25 +73,22 @@ public class Organisation {
                 preparedStatement.setString(1,organisationName);
                 preparedStatement.executeUpdate();
                 preparedStatement.closeOnCompletion();
-                confirm_information = "Success";
+                insertResult[0] = "true";
+                insertResult[1] = "Success";
             } else{
-                confirm_information = "Fail";
+                insertResult[0] = "false";
+                insertResult[1] = "Fail";
             }
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
             //System.out.println(e.getSQLState());
-            confirm_information = "Fail";
+            insertResult[0] = "false";
+            insertResult[1] = "Fail";
 
         }
-        return confirm_information;
-    }
-
-    public static void main(String[] args){
-        SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
-        Connection connection = sqLiteJDBC.connectionToDatabase();
-        Organisation organisation = new Organisation();
-        organisation.createOrganisation("University of canterbury", connection);
+        System.out.printf("Create Organisation result: %s", insertResult[1]);
+        return insertResult;
     }
 
 

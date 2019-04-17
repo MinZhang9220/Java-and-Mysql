@@ -1,4 +1,4 @@
-package java;
+package function;
 
 public class Argument {
 
