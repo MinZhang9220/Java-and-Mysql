@@ -1,8 +1,12 @@
 # Created by mzh73 at 17/04/19
 
 
-Feature: #Enter feature name here
-  # Enter feature description here
+Feature: Organisation functionality
 
-  Scenario: # Enter scenario name here
+
+  Background: Given I am connected to the discourse database
+
+  Scenario: Insert an organisation into organisation table
+    Given The organisation with name "university of auckland" dose not exists
+
     # Enter steps here
