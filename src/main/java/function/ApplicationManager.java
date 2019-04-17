@@ -1,22 +1,23 @@
 package function;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class ApplicationManager {
+
 
     public static void main(String [ ] args) {
 
         boolean quitDiscourseSystem = false;
+        SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
+        Connection connection = sqLiteJDBC.getConnectionToDatabase();
 
         System.out.println("Welcome to Discourse System");
         System.out.println("----------------------------");
         System.out.println();
         System.out.println();
         System.out.println();
-
-
-
         System.out.println("-----------------------------------------");
         System.out.println("|  CommandCode | Command Content        |");
         System.out.println("-----------------------------------------");
@@ -28,6 +29,8 @@ public class Main {
         System.out.println("-----------------------------------------");
         System.out.println("|        4     | Register an argument   |");
         System.out.println("-----------------------------------------");
+        System.out.println("|        5     | Quit application       |");
+        System.out.println("-----------------------------------------");
 
         ArrayList<Integer> commandArray = new ArrayList<Integer>(){
             {
@@ -35,39 +38,34 @@ public class Main {
                 add(2);
                 add(3);
                 add(4);
+                add(5);
             }
         };
 
 
+        Scanner scanner = new Scanner(System.in);
         while (!quitDiscourseSystem){
-
-
-            Scanner commandCodeScanner = new Scanner(System.in);
-
 
             int commandCode;
 
             do{
                 System.out.println("Type your command code");
-                commandCode = commandCodeScanner.nextInt();
-
+                commandCode = scanner.nextInt();
+                scanner.nextLine();
             } while(!commandArray.contains(commandCode));
 
             if(commandCode == 1){
                 System.out.println("Please type your organisation name.");
-                SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
-                Scanner organisationNameScanner = new Scanner(System.in);
-                String organisationName = organisationNameScanner.nextLine();
+                String organisationName = scanner.nextLine();
                 Organisation organisation = new Organisation(organisationName);
-                organisation.createOrganisation(organisationName,sqLiteJDBC.connectionToDatabase());
+                organisation.createOrganisation(organisationName,connection);
+                organisation.printOrganisations(connection);
+            }
+            if(commandCode == 5){
+                System.out.println("**Exiting application**");
+                quitDiscourseSystem = true;
             }
         }
-
-
-
-
-
-
     }
 
 }

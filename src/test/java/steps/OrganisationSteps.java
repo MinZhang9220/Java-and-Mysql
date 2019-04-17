@@ -27,7 +27,7 @@ public class OrganisationSteps {
 
     @Given("I am connected to the discourse database")
     public void iAmConnectedToTheDiscourseDatabase(){
-        connection = sqLiteJDBC.connectionToDatabase();
+        connection = sqLiteJDBC.getConnectionToDatabase();
         Assert.assertFalse(connection == null);
     }
 

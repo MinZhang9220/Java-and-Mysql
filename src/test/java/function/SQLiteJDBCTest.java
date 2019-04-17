@@ -11,7 +11,7 @@ class SQLiteJDBCTest {
     @Test
     void connectionToDatabase() {
         SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
-        assertNotNull(sqLiteJDBC.connectionToDatabase());
+        assertNotNull(sqLiteJDBC.getConnectionToDatabase());
 
     }
 }

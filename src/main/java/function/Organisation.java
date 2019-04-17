@@ -6,6 +6,7 @@
 package function;
 
 import java.sql.*;
+import java.util.List;
 
 
 public class Organisation {
@@ -88,14 +89,24 @@ public class Organisation {
 
         }
         System.out.printf("Create Organisation result: %s", insertResult[1]);
+        System.out.println();
         return insertResult;
     }
 
-
-
-
-
-
+    public void printOrganisations(Connection connection){
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from organisation");
+            ResultSet result = preparedStatement.executeQuery();
+            System.out.println("-----------------------------------------");
+            System.out.println("|          Organisation names           |");
+            System.out.println("-----------------------------------------");
+            while(result.next()){
+                System.out.println(result.getString("name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 

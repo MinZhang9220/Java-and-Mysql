@@ -20,7 +20,7 @@ class OrganisationTest {
 
     @BeforeAll
     static void initConnection(){
-        connection = sqLiteJDBC.connectionToDatabase();
+        connection = sqLiteJDBC.getConnectionToDatabase();
     }
 
     @Test
