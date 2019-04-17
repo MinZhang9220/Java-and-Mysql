@@ -1,5 +1,7 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Actor {
 
@@ -24,8 +26,55 @@ public class Actor {
 
     /**
      * Inserts the actor and its attributes into the database where it will be stored persistently.
+     * @param connection the sqlite3 database connection
+     * @return true if the user was successfully inserted into the database. False otherwise.
      */
-    public void insertActorIntoDatabase(Connection connection, Actor actor){
-        //PreparedStatement statement = connection.
+    public boolean insertActorIntoDatabase(Connection connection){
+        try {
+            if(isActorHomonym(connection)) {
+                //to be updated
+                if(!sendConfirmationMessage()){
+                    return false;
+                }
+            }
+            PreparedStatement statement = connection.prepareStatement("insert into actor(firstname, lastname, leveloftrust) values (?,?,?)");
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            statement.setDouble(3, levelOfTrust);
+            boolean result = statement.execute();
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * Method to check if the actor is a homonym actor, ie they have the same first name and last name.
+     * Makes a query to the database to check if there are actors with the same first and last name.
+     * If there are actors with the same first name and last name, returns true. Returns false otherwise.
+     * @param connection the sqlite3 database connection
+     * @return true if the actor is a homonym actor, false otherwise
+     * @throws SQLException the SQL Exception if there is an error in the database execution
+     */
+    public boolean isActorHomonym(Connection connection) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("select count(*) as total from actor where firstname = ? and lastname = ? values (?,?)");
+        statement.setString(1, firstName);
+        statement.setString(2, lastName);
+        ResultSet result = statement.executeQuery();
+        int count = 0;
+        while(result.next()){
+            count = result.getInt("total");
+        }
+        if(count != 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean sendConfirmationMessage(){
+        return true;
     }
 }
