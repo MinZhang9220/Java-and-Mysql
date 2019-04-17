@@ -1754,28 +1754,28 @@
 [debug] == resolving dependencies default#epic-seng301-project$sources;0.1->jline#jline;2.14.6 [scala-tool->master]
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
+[debug] 	[NOT REQUIRED] io.cucumber#cucumber-java;4.2.0!cucumber-java.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.12.8!scala-library.jar(src)
 [debug] 	[NOT REQUIRED] io.cucumber#cucumber-core;4.2.0!cucumber-core.jar(src)
-[debug] 	[NOT REQUIRED] io.cucumber#tag-expressions;1.1.1!tag-expressions.jar(src)
 [debug] 	[NOT REQUIRED] org.xerial#sqlite-jdbc;3.25.2!sqlite-jdbc.jar(src)
+[debug] 	[NOT REQUIRED] io.cucumber#tag-expressions;1.1.1!tag-expressions.jar(src)
 [debug] 	[NOT REQUIRED] io.cucumber#cucumber-expressions;6.2.0!cucumber-expressions.jar(src)
-[debug] 	[NOT REQUIRED] io.cucumber#cucumber-java;4.2.0!cucumber-java.jar(src)
-[debug] 	[NOT REQUIRED] io.cucumber#cucumber-html;0.2.7!cucumber-html.jar(src)
 [debug] 	[NOT REQUIRED] io.cucumber#datatable;1.1.7!datatable.jar(src)
+[debug] 	[NOT REQUIRED] io.cucumber#cucumber-html;0.2.7!cucumber-html.jar(src)
 [debug] 	[NOT REQUIRED] io.cucumber#datatable-dependencies;1.1.7!datatable-dependencies.jar(src)
+[debug] 	[NOT REQUIRED] net.bytebuddy#byte-buddy-agent;1.9.7!byte-buddy-agent.jar(src)
 [debug] 	[NOT REQUIRED] io.cucumber#gherkin;5.1.0!gherkin.jar(src)
+[debug] 	[NOT REQUIRED] org.mockito#mockito-core;2.25.1!mockito-core.jar(src)
+[debug] 	[NOT REQUIRED] junit#junit;4.12!junit.jar(src)
 [debug] 	[NOT REQUIRED] io.cucumber#cucumber-junit;4.2.0!cucumber-junit.jar(src)
 [debug] 	[NOT REQUIRED] org.objenesis#objenesis;2.6!objenesis.jar(src)
-[debug] 	[NOT REQUIRED] junit#junit;4.12!junit.jar(src)
-[debug] 	[NOT REQUIRED] org.mockito#mockito-core;2.25.1!mockito-core.jar(src)
-[debug] 	[NOT REQUIRED] net.bytebuddy#byte-buddy-agent;1.9.7!byte-buddy-agent.jar(src)
 [debug] 	[NOT REQUIRED] org.hamcrest#hamcrest-core;1.3!hamcrest-core.jar(src)
 [debug] 	[NOT REQUIRED] net.bytebuddy#byte-buddy;1.9.7!byte-buddy.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.8!scala-reflect.jar(src)
 [debug] 	[NOT REQUIRED] jline#jline;2.14.6!jline.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.8!scala-compiler.jar(src)
-[debug] :: resolution report :: resolve 72ms :: artifacts dl 9ms
+[debug] :: resolution report :: resolve 75ms :: artifacts dl 4ms
 [debug] 	report for default#epic-seng301-project$sources;0.1 compile produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/default-epic-seng301-project$sources-compile.xml
 [debug] 	report for default#epic-seng301-project$sources;0.1 runtime produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/default-epic-seng301-project$sources-runtime.xml
 [debug] 	report for default#epic-seng301-project$sources;0.1 test produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/default-epic-seng301-project$sources-test.xml
@@ -1787,4 +1787,4 @@
 [debug] 	report for default#epic-seng301-project$sources;0.1 plugin produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/default-epic-seng301-project$sources-plugin.xml
 [debug] 	report for default#epic-seng301-project$sources;0.1 pom produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/default-epic-seng301-project$sources-pom.xml
 [debug] 	report for default#epic-seng301-project$sources;0.1 scala-tool produced in /home/cosc/student/mzh73/Course/SENG301/ASSI2/epic-seng301-project/target/scala-2.12/resolution-cache/reports/default-epic-seng301-project$sources-scala-tool.xml
-[debug] 	resolve done (72ms resolve - 9ms download)
+[debug] 	resolve done (75ms resolve - 4ms download)
