@@ -1,4 +1,4 @@
-name := "Seng301Assignment"
+name := "epic-seng301-project"
 
 version := "0.1"
 
