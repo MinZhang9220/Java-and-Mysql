@@ -87,7 +87,7 @@ public class Organisation {
             insertResult[1] = "Fail";
 
         }
-        System.out.printf("Create Organisation result: %s", insertResult[1]);
+        System.out.printf("Create Organisation result: %s\n", insertResult[1]);
         return insertResult;
     }
 
