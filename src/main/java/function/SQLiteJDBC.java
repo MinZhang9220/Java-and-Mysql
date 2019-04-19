@@ -8,7 +8,7 @@ public class SQLiteJDBC {
 
     public SQLiteJDBC(){}
 
-    public Connection connectionToDatabase(){
+    public Connection getConnectionToDatabase(){
 
         String url = "jdbc:sqlite:discourse.sqlite";
         try{
@@ -16,7 +16,6 @@ public class SQLiteJDBC {
             Connection connection = DriverManager.getConnection(url);
             PreparedStatement preparedStatement = connection.prepareStatement("select name from organisation where name = \"University of canterbury\"");
             ResultSet resultSet = preparedStatement.executeQuery();
-
             preparedStatement.closeOnCompletion();
 
             if(resultSet.next()){

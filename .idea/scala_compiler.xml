@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="epic-seng301-project,epic-seng301-project_4339" />
+    <profile name="sbt 1" modules="epic-seng301-project_4339,epic-seng301-project" />
   </component>
 </project>
