@@ -3,7 +3,7 @@ package function;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class ApplicationManager {
 
 
     public ArrayList<Discourse> initialiseDiscourse(){
@@ -32,7 +32,7 @@ public class Main {
 
     public static void main(String [ ] args) {
 
-        Main excuted_main = new Main();
+        ApplicationManager excuted_main = new ApplicationManager();
         ArrayList<Discourse> discourses = excuted_main.initialiseDiscourse();
         boolean quitDiscourseSystem = false;
 
@@ -96,7 +96,7 @@ public class Main {
                 Scanner organisationNameScanner = new Scanner(System.in);
                 String organisationName = organisationNameScanner.nextLine();
                 Organisation organisation = new Organisation(organisationName);
-                organisation.createOrganisation(organisationName,sqLiteJDBC.connectionToDatabase());
+                organisation.createOrganisation(organisationName,sqLiteJDBC.getConnectionToDatabase());
             } else if(Integer.parseInt(commandCode) == 2){
                 //do something
             } else if(Integer.parseInt(commandCode) == 3){
