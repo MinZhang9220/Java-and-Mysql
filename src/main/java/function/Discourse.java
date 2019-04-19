@@ -9,6 +9,8 @@ public class Discourse {
     protected String discourseContent;
     protected String discourse_theme;
 
+    public Discourse(){}
+
     public Discourse(int id, String discourseContent,String discourse_theme){
         this.id = id;
         this.discourseContent = discourseContent;
@@ -21,6 +23,7 @@ public class Discourse {
     public String getDiscourseContent(){
         return this.discourseContent;
     }
+    public String getDiscourse_theme(){return this.discourse_theme;}
 
     public void setId(int id){
         this.id = id;
@@ -28,6 +31,7 @@ public class Discourse {
     public void setDiscourseContent(String discourseContent){
         this.discourseContent = discourseContent;
     }
+    public void setDiscourse_theme(String discourse_theme){this.discourse_theme = discourse_theme;}
 
 
 
