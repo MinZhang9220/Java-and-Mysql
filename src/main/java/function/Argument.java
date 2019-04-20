@@ -6,33 +6,38 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
+
 public class Argument {
+
+
+    public static ArrayList<Discourse> discoursesArray = Discourse.discourses;
 
     protected String content;
     protected int discourseid;
     protected int startindices;
     protected int endindices;
-    ArrayList<Discourse> discourses;
+     ;
 
     public Argument(){}
+
     public Argument(String content,int discourseid,int startindices,int endindices){
         this.content = content;
         this.discourseid = discourseid;
         this.startindices = startindices;
         this.endindices = endindices;
-        this.discourses = new ArrayList<>();
     }
     public String getContent(){ return this.content;}
     public int getDiscourseid(){return this.discourseid;}
     public int getStartindices(){return this.startindices;}
     public int getEndindices(){return this.endindices;}
-    public ArrayList<Discourse> getDiscourses(){return this.discourses;}
+    public ArrayList<Discourse> getDiscourses(){return this.discoursesArray;}
 
     public void setContent(String content){this.content = content;}
     public void setDiscourseid(int discourseid){this.discourseid = discourseid;}
     public void setStartindices(int startindices){this.startindices = startindices;}
     public void setEndindices(int endindices){this.endindices = endindices;}
-    public void setDiscourses(ArrayList<Discourse> discourses){this.discourses = discourses;}
+    public void setDiscourses(ArrayList<Discourse> discourses){this.discoursesArray = discourses;}
 
 
     /**
@@ -45,7 +50,7 @@ public class Argument {
 
         Discourse discourse = new Discourse();
 
-        for(Discourse targetDiscourse:this.discourses){
+        for(Discourse targetDiscourse:this.discoursesArray){
             if(targetDiscourse.getId() == discourseid){
                 discourse.setDiscourseContent(targetDiscourse.getDiscourseContent());
                 discourse.setId(targetDiscourse.getId());
@@ -91,10 +96,10 @@ public class Argument {
                 validResult[0] = "false";
                 validResult[1] = "Indices is wrong";
                 System.out.println("Start indices must less than or equal to the end indices");
-            } else{
-                validResult[0] = "true";
-                validResult[1] = "valid";
             }
+        } else{
+            validResult[0] = "true";
+            validResult[1] = "valid";
         }
 
         return validResult;
@@ -159,7 +164,7 @@ public class Argument {
 
         try{
 
-            if(this.validExistInDatabase(discourseid,startindices,endindices,connection)){
+            if(!this.validExistInDatabase(discourseid,startindices,endindices,connection)){
 
                 String content = this.getDiscourseById(discourseid).getDiscourseContent().substring(startindices,endindices+1);
 
@@ -169,17 +174,20 @@ public class Argument {
                 preparedStatement.setInt(3,endindices);
                 preparedStatement.setString(4,content);
                 int rowUpdate = preparedStatement.executeUpdate();
-                preparedStatement.closeOnCompletion();
+                //preparedStatement.closeOnCompletion();
 
                 if(rowUpdate == 1){
+
                     executeResult[0] = "true";
                     executeResult[1] = "Success";
                 } else{
+
                     executeResult[0] = "false";
                     executeResult[1] = "Fail";
                 }
 
             } else {
+
                 executeResult[0] = "false";
                 executeResult[1] = "Fail";
             }
@@ -187,12 +195,11 @@ public class Argument {
         } catch (SQLException e){
 
             System.out.println(e.getMessage());
-            executeResult[0] = "false";
+            executeResult[0] = "123";
             executeResult[1] = "Fail";
 
         }
         System.out.printf("Create Argument result: %s\n", executeResult[1]);
         return executeResult;
     }
-
 }

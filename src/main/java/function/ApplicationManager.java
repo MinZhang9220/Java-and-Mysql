@@ -6,35 +6,10 @@ import java.util.Scanner;
 public class ApplicationManager {
 
 
-    public ArrayList<Discourse> initialiseDiscourse(){
-        /**
-         * Fake a database of Discourses
-         */
-
-        String discourse_content_1 = "When he spoke to the Democratic National Convention in support of Senator John Kerry" +
-                "the party’s presidential nominee against George W. Bush";
-
-
-        String discourse_content_2 = "As Supreme Allied Commander in Europe," +
-                "Gen Eisenhower announced the D-Day landings at Normandy to the people of France and Western Europe.";
-        String discourse_content_3 = "Delivered in secret before a rapt audience of Communist apparatchiks," +
-                "this remarkable speech by a Soviet leader helped destroy Stalin’s reputation. ";
-
-        ArrayList<Discourse> discourses = new ArrayList<>();
-        discourses.add(new Discourse(1,discourse_content_1,"The Audacity of Hope"));
-        discourses.add(new Discourse(2,discourse_content_2,"D-Day broadcast to the people of Western Europe"));
-        discourses.add(new Discourse(3,discourse_content_3,"Kruschev's Secret Speech"));
-
-        return discourses;
-
-
-    }
-
     public static void main(String [ ] args) {
 
-        ApplicationManager excuted_main = new ApplicationManager();
-        ArrayList<Discourse> discourses = excuted_main.initialiseDiscourse();
         boolean quitDiscourseSystem = false;
+        SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
 
         System.out.println("Welcome to Discourse System");
         System.out.println("----------------------------");
@@ -92,7 +67,6 @@ public class ApplicationManager {
 
             if(Integer.parseInt(commandCode) == 1){
                 System.out.println("Please type your organisation name.");
-                SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
                 Scanner organisationNameScanner = new Scanner(System.in);
                 String organisationName = organisationNameScanner.nextLine();
                 Organisation organisation = new Organisation(organisationName);
@@ -104,6 +78,8 @@ public class ApplicationManager {
             } else if(Integer.parseInt(commandCode) == 4){
                 //Register an argument
 
+                Argument argument = new Argument();
+
                 System.out.printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
                 System.out.printf("%s%-150s%s%12s%s%12s%s%5s%s\n","|","Content","|","Start indices","|","End indices","|","id","|");
@@ -111,10 +87,21 @@ public class ApplicationManager {
                 System.out.printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
 
-                for(Discourse discourse:discourses){
+                for(Discourse discourse:Discourse.discourses){
                     System.out.printf("%s%-150s%s%12d%s%12d%s%5d%s\n","|",discourse.getDiscourseContent(),"|",0,"|",discourse.getDiscourseContent().length() - 1,"|",discourse.getId(),"|");
                     System.out.printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 }
+                System.out.println("Discourse id: ");
+                Scanner commandScannerForArguments = new Scanner(System.in);
+                int discourseId = commandScannerForArguments.nextInt();
+                System.out.println("Start Indices: ");
+                int startIndices = commandScannerForArguments.nextInt();
+                System.out.println("End Indices: ");
+                int endIndices = commandScannerForArguments.nextInt();
+
+                argument.createArgument(discourseId,startIndices,endIndices,sqLiteJDBC.getConnectionToDatabase());
+
+
 
             } else if(commandCode == "q"){
                 //Quit this system

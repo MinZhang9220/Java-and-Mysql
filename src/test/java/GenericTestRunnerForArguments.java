@@ -6,11 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features",
+        features = "classpath:features/arguments",
         plugin = {"pretty", "html:target/site/cucumber -pretty", "json:target/cucumber.json"},
-        glue = "steps",
+        glue = "steps/arguments",
         snippets = SnippetType.CAMELCASE
 )
-public class GenericTestRunner {
+public class GenericTestRunnerForArguments {
 
 }
