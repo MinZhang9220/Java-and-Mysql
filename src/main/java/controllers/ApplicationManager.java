@@ -1,12 +1,18 @@
-package function;
+package controllers;
 
+import models.Discourse;
+import datahandling.SQLiteJDBC;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ApplicationManager {
 
 
-    public ArrayList<Discourse> initialiseDiscourse(){
+    public List<Discourse> initialiseDiscourse(){
         /**
          * Fake a database of Discourses
          */
@@ -20,20 +26,25 @@ public class ApplicationManager {
         String discourse_content_3 = "Delivered in secret before a rapt audience of Communist apparatchiks," +
                 "this remarkable speech by a Soviet leader helped destroy Stalin’s reputation. ";
 
-        ArrayList<Discourse> discourses = new ArrayList<>();
+        List<Discourse> discourses = new ArrayList<>();
         discourses.add(new Discourse(1,discourse_content_1,"The Audacity of Hope"));
         discourses.add(new Discourse(2,discourse_content_2,"D-Day broadcast to the people of Western Europe"));
         discourses.add(new Discourse(3,discourse_content_3,"Kruschev's Secret Speech"));
 
         return discourses;
-
-
     }
 
     public static void main(String [ ] args) {
+        //Initialise discourses
+        ApplicationManager applicationManager = new ApplicationManager();
+        List<Discourse> discourses = applicationManager.initialiseDiscourse();
 
-        ApplicationManager excuted_main = new ApplicationManager();
-        ArrayList<Discourse> discourses = excuted_main.initialiseDiscourse();
+        SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
+        Connection connection = sqLiteJDBC.getConnectionToDatabase();
+
+        OrganisationController organisationController = new OrganisationController(connection);
+        ActorController actorController = new ActorController(connection);
+
         boolean quitDiscourseSystem = false;
 
         System.out.println("Welcome to Discourse System");
@@ -70,19 +81,17 @@ public class ApplicationManager {
         };
 
 
+        Scanner scanner = new Scanner(System.in);
+
         while (!quitDiscourseSystem){
 
-
-            Scanner commandCodeScanner = new Scanner(System.in);
-
-
             String commandCode;
+
             boolean validCommandCode = false;
 
             do{
-
                 System.out.println("Type your command code");
-                commandCode = commandCodeScanner.next();
+                commandCode = scanner.nextLine();
                 if(commandArray.contains(commandCode)){
                     validCommandCode = true;
                 } else{
@@ -90,43 +99,36 @@ public class ApplicationManager {
                 }
             } while(!validCommandCode);
 
-            if(Integer.parseInt(commandCode) == 1){
-                System.out.println("Please type your organisation name.");
-                SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
-                Scanner organisationNameScanner = new Scanner(System.in);
-                String organisationName = organisationNameScanner.nextLine();
-                Organisation organisation = new Organisation(organisationName);
-                organisation.createOrganisation(organisationName,sqLiteJDBC.getConnectionToDatabase());
-            } else if(Integer.parseInt(commandCode) == 2){
+            if(commandCode.equals("1")){
+                organisationController.createOrganisation(scanner);
+            } else if(commandCode.equals("2")){
+                actorController.createActor(scanner);
+            } else if(commandCode.equals("3")){
                 //do something
-            } else if(Integer.parseInt(commandCode) == 3){
-                //do something
-            } else if(Integer.parseInt(commandCode) == 4){
+            } else if(commandCode.equals("4")){
                 //Register an argument
 
-                System.out.printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
                 System.out.printf("%s%-150s%s%12s%s%12s%s%5s%s\n","|","Content","|","Start indices","|","End indices","|","id","|");
                 System.out.println();
-                System.out.printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
 
-                for(Discourse discourse:discourses){
+                for(Discourse discourse : discourses){
                     System.out.printf("%s%-150s%s%12d%s%12d%s%5d%s\n","|",discourse.getDiscourseContent(),"|",0,"|",discourse.getDiscourseContent().length() - 1,"|",discourse.getId(),"|");
-                    System.out.printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                    System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 }
 
-            } else if(commandCode == "q"){
+            } else if(commandCode.equals("q")){
                 //Quit this system
                 quitDiscourseSystem = true;
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
-
-
-
-
-
-
     }
-
 }

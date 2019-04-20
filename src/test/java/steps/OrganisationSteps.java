@@ -1,20 +1,8 @@
 package steps;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import function.Organisation;
-import function.SQLiteJDBC;
-import function.Argument;
-import org.junit.Assert;
-
-import java.sql.Connection;
-
-
-
-
 
 public class OrganisationSteps {
+    /*
 
     SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
     Organisation organisation = new Organisation();
@@ -138,7 +126,7 @@ public class OrganisationSteps {
 
 
 
-
+*/
 
 
 

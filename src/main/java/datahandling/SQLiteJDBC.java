@@ -1,4 +1,4 @@
-package function;
+package datahandling;
 
 
 import java.sql.*;
@@ -24,6 +24,7 @@ public class SQLiteJDBC {
                 return null;
             }
         } catch (SQLException e){
+            e.printStackTrace();
             System.out.println("Can not connect to database discourse");
             return null;
         }

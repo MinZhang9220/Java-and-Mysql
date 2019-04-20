@@ -1,4 +1,4 @@
-package function;
+package models;
 
 /**
  * Sample data for discourse

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(JUnitPlatform.class)
 class OrganisationTest {
-
+    /*
     static SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
     static  Connection connection;
     static Organisation organisation = new Organisation();
@@ -59,4 +59,5 @@ class OrganisationTest {
         assertEquals("false",resultWithExistedOrganisationName[0]);
         assertEquals("Fail",resultWithExistedOrganisationName[1]);
     }
+    */
 }
