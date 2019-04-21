@@ -12,13 +12,23 @@ public class ActorController {
     private ActorRepository actorRepository;
     private ActorView actorView;
 
+    /**
+     * Consructor for the actor controller class.
+     * Initialises the actor repository for talking to the sqlite database
+     * and initialises actor view to update what the user sees.
+     * @param connection the sqlite connection
+     */
     public ActorController(Connection connection){
         actorRepository = new ActorRepository(connection);
         actorView = new ActorView();
     }
 
 
-
+    /**
+     * Method to create an actor following the ACs which can be found at
+     * https://eng-git.canterbury.ac.nz/gon12/epic-seng301-project/wikis/product-backlog
+     * @param scanner the scanner to receive user input
+     */
     public void createActor(Scanner scanner){
         String[] actorDetails = actorView.getActorDetails(scanner);
         String firstName = actorDetails[0];
@@ -57,5 +67,18 @@ public class ActorController {
         else{
             actorView.printSuccessMessage();
         }
+    }
+
+    public Actor getActorFromUser(Scanner scanner){
+        List<Actor> actorList = actorRepository.getActors();
+        actorView.printActors(actorList);
+        Integer id = actorView.getActorIdFromUser(scanner);
+        Actor actor = actorRepository.getActorById(id);
+        while(actor == null) {
+            actorView.printInvalidActorIdMessage();
+            id = actorView.getActorIdFromUser(scanner);
+            actor = actorRepository.getActorById(id);
+        }
+        return actor;
     }
 }

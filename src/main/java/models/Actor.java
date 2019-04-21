@@ -30,18 +30,6 @@ public class Actor {
     }
 
     /**
-     * Constructs an Actor with a given actor id, first name, last name and level of trust.
-     * @param firstName the actor's first name
-     * @param lastName the actor's last name
-     * @param levelOfTrust the actor's level of trust
-     */
-    public Actor(String firstName, String lastName, Double levelOfTrust){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.levelOfTrust = levelOfTrust;
-    }
-
-    /**
      * Constructs an Actor with a given actor id, first name and last name.
      * @param firstName the actor's first name
      * @param lastName the actor's last name
@@ -57,7 +45,7 @@ public class Actor {
      * @return true if the user was successfully inserted into the database. False otherwise.
      */
     public boolean insertActorIntoDatabase(ActorRepository actorRepository){
-            return actorRepository.insertActor(this);
+        return actorRepository.insertActor(this);
     }
 
     /**
@@ -66,7 +54,6 @@ public class Actor {
      * If there are actors with the same first name and last name, returns true. Returns false otherwise.
      * @param actorRepository the repository used to make queries to the database
      * @return true if the actor is a homonym actor, false otherwise
-     * @throws SQLException the SQL Exception if there is an error in the database execution
      */
     public boolean isActorHomonym(ActorRepository actorRepository){
         return actorRepository.isActorHomonym(this);
@@ -97,24 +84,12 @@ public class Actor {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public Double getLevelOfTrust() {
         return levelOfTrust;
-    }
-
-    public void setLevelOfTrust(Double levelOfTrust) {
-        this.levelOfTrust = levelOfTrust;
     }
 
     /**

@@ -1,205 +1,101 @@
 package models;
 
+import datahandling.ArgumentRepository;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 
 public class Argument {
 
+    private String rephrasing;
+    private Discourse discourse;
+    private int startIndex;
+    private int endIndex;
+    private String[] endingPunctuationMarks = {"!", "?", "."};
 
-    public static ArrayList<Discourse> discoursesArray = Discourse.discourses;
-
-    protected String content;
-    protected int discourseid;
-    protected int startindices;
-    protected int endindices;
-     ;
-
-    public Argument(){}
-
-    public Argument(String content,int discourseid,int startindices,int endindices){
-        this.content = content;
-        this.discourseid = discourseid;
-        this.startindices = startindices;
-        this.endindices = endindices;
+    public Argument(Discourse discourse){
+        this.discourse = discourse;
     }
-    public String getContent(){ return this.content;}
-    public int getDiscourseid(){return this.discourseid;}
-    public int getStartindices(){return this.startindices;}
-    public int getEndindices(){return this.endindices;}
-    public ArrayList<Discourse> getDiscourses(){return this.discoursesArray;}
 
-    public void setContent(String content){this.content = content;}
-    public void setDiscourseid(int discourseid){this.discourseid = discourseid;}
-    public void setStartindices(int startindices){this.startindices = startindices;}
-    public void setEndindices(int endindices){this.endindices = endindices;}
-    public void setDiscourses(ArrayList<Discourse> discourses){this.discoursesArray = discourses;}
+    public String getRephrasing(){ return this.rephrasing;}
+    public Discourse getDiscourse(){return this.discourse;}
+    public int getStartIndex(){return this.startIndex;}
+    public int getEndIndex(){return this.endIndex;}
 
+    public void setRephrasing(String rephrasing){this.rephrasing = rephrasing;}
+    public void setDiscourse(Discourse discourse){this.discourse = discourse;}
+    public void setStartIndex(int startIndex){this.startIndex = startIndex;}
+    public void setEndIndex(int endIndex){this.endIndex = endIndex;}
 
     /**
-     * Find discourse by discourse id
-     * @param discourseid
-     * @return discourse
+     *
+     * @param startIndex
+     * @return
      */
-
-    public Discourse getDiscourseById(int discourseid){
-
-        Discourse discourse = new Discourse();
-
-        for(Discourse targetDiscourse:this.discoursesArray){
-            if(targetDiscourse.getId() == discourseid){
-                discourse.setDiscourseContent(targetDiscourse.getDiscourseContent());
-                discourse.setId(targetDiscourse.getId());
-                discourse.setDiscourse_theme(targetDiscourse.getDiscourse_theme());
-                break;
-            } else{
-                continue;
-            }
+    public boolean isValidStartIndex(int startIndex){
+        if(startIndex < 0 || startIndex >= discourse.getContent().length() - 2){
+            return false;
         }
-
-        return discourse;
-    }
-
-
-    /**
-     * Check if the start indices or the endindices is valid.
-     * @param discourseid
-     * @param startindices
-     * @param endindices
-     * @return result
-     */
-    public String[] validIndex(int discourseid,int startindices,int endindices){
-
-        String[] validResult = new String[2];
-
-        if(startindices < 0 || endindices > this.getDiscourseById(discourseid).getDiscourseContent().length() - 1 || startindices > endindices){
-            /**
-             * start indices must greater or equal than 0
-             * end indices must less than or equal the length - 1 of the content
-             * start indices must less than or equal to the end indices
-             */
-            if(startindices < 0){
-                validResult[0] = "false";
-                validResult[1] = "Start indices is wrong";
-                System.out.println("Start indices must greater or equal than 0");
-
-            } else if(endindices > this.getDiscourseById(discourseid).getDiscourseContent().length() - 1 ){
-                validResult[0] = "false";
-                validResult[1] = "End indices is wrong";
-                System.out.println("End indices must less than or equal the length - 1 of the content");
-
-            } else if(startindices > endindices){
-                validResult[0] = "false";
-                validResult[1] = "Indices is wrong";
-                System.out.println("Start indices must less than or equal to the end indices");
-            }
-        } else{
-            validResult[0] = "true";
-            validResult[1] = "valid";
-        }
-
-        return validResult;
-    }
-
-    /**
-     * Check if the argument is identical
-     * @param discourseid
-     * @param startindices
-     * @param endindices
-     * @oaran connection
-     * @return argumentValidResult
-     */
-    public boolean validExistInDatabase(int discourseid, int startindices, int endindices, Connection connection){
-
-        boolean argumentValidResult;
-
-        assert null != connection : "connection can not be null!";
-        if(this.validIndex(discourseid,startindices,endindices)[0] == "true"){
-
-            try{
-
-                PreparedStatement preparedStatement = connection.prepareStatement("select * from argument where discourseid=? and startindices=? and endindices=?");
-                preparedStatement.setInt(1,discourseid);
-                preparedStatement.setInt(2,startindices);
-                preparedStatement.setInt(3,endindices);
-
-                ResultSet resultSet = preparedStatement.executeQuery();
-                preparedStatement.closeOnCompletion();
-
-                if(resultSet.next()){
-                    argumentValidResult = true;
-                } else{
-                    argumentValidResult = false;
+        else {
+            if(startIndex != 0) {
+                String startIndexCharacter = String.valueOf(discourse.getContent().charAt(startIndex - 1));
+                while (startIndex > 0 && startIndexCharacter.equals(" ")) {
+                    startIndex--;
+                    if(startIndex != 0) {
+                        startIndexCharacter = String.valueOf(discourse.getContent().charAt(startIndex - 1));
+                    }
                 }
-
-            } catch (SQLException e){
-                System.out.println(e.getMessage());
-                argumentValidResult = false;
+                if (!Arrays.asList(endingPunctuationMarks).contains(startIndexCharacter) && startIndex != 0) {
+                    return false;
+                } else {
+                    return true;
+                }
             }
-
-        } else{
-            System.out.println(this.validIndex(discourseid,startindices,endindices)[1]);
-            argumentValidResult = false;
+            else{
+                return true;
+            }
         }
-
-        return argumentValidResult;
     }
 
-
-    /**
-     * Create an argument
-     * @param discourseid
-     * @param startindices
-     * @param endindices
-     * @return executeResult
-     */
-
-    public String[] createArgument(int discourseid,int startindices,int endindices,Connection connection){
-
-        String[] executeResult = new String[2];
-
-        try{
-
-            if(!this.validExistInDatabase(discourseid,startindices,endindices,connection)){
-
-                String content = this.getDiscourseById(discourseid).getDiscourseContent().substring(startindices,endindices+1);
-
-                PreparedStatement preparedStatement = connection.prepareStatement("insert into argument(discourseid, startindices, endindices, content) values (?,?,?,?)");
-                preparedStatement.setInt(1,discourseid);
-                preparedStatement.setInt(2,startindices);
-                preparedStatement.setInt(3,endindices);
-                preparedStatement.setString(4,content);
-                int rowUpdate = preparedStatement.executeUpdate();
-                //preparedStatement.closeOnCompletion();
-
-                if(rowUpdate == 1){
-
-                    executeResult[0] = "true";
-                    executeResult[1] = "Success";
-                } else{
-
-                    executeResult[0] = "false";
-                    executeResult[1] = "Fail";
-                }
-
-            } else {
-
-                executeResult[0] = "false";
-                executeResult[1] = "Fail";
-            }
-
-        } catch (SQLException e){
-
-            System.out.println(e.getMessage());
-            executeResult[0] = "123";
-            executeResult[1] = "Fail";
-
+    public boolean isValidEndIndex(int endIndex){
+        if(endIndex < 1 || endIndex > discourse.getContent().length() - 1){
+            return false;
         }
-        System.out.printf("Create Argument result: %s\n", executeResult[1]);
-        return executeResult;
+        else {
+            String endIndexCharacter = String.valueOf(discourse.getContent().charAt(endIndex));
+            while (endIndex > 1 && endIndexCharacter.equals(" ")) {
+                endIndex--;
+                endIndexCharacter = String.valueOf(discourse.getContent().charAt(endIndex));
+            }
+            if(!Arrays.asList(endingPunctuationMarks).contains(endIndexCharacter)){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    }
+
+    public boolean hasNoDuplicates(int startIndex, int endIndex, ArgumentRepository argumentRepository){
+        int count = argumentRepository.getDuplicateArgumentCount(this, startIndex, endIndex);
+        if(count > 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    public boolean isValidRephrasing(String rephrasing){
+        return rephrasing.matches(".*[a-zA-Z]+.*");
+    }
+
+    public boolean insertArgumentIntoDatabase(ArgumentRepository argumentRepository){
+        return argumentRepository.insertArgument(this);
     }
 }

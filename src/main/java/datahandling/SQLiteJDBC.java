@@ -8,24 +8,17 @@ public class SQLiteJDBC {
 
     public SQLiteJDBC(){}
 
-    public Connection getConnectionToDatabase(){
-
+    public Connection getConnectionToDatabase(String databaseType){
         String url = "jdbc:sqlite:discourse.sqlite";
+        if(databaseType.equalsIgnoreCase("test")){
+            url = "jdbc:sqlite:test.sqlite";
+        }
         try{
-
             Connection connection = DriverManager.getConnection(url);
-            PreparedStatement preparedStatement = connection.prepareStatement("select name from organisation where name = \"University of canterbury\"");
-            ResultSet resultSet = preparedStatement.executeQuery();
-            preparedStatement.closeOnCompletion();
-
-            if(resultSet.next()){
-                return connection;
-            } else {
-                return null;
-            }
+            return connection;
         } catch (SQLException e){
             e.printStackTrace();
-            System.out.println("Can not connect to database discourse");
+            System.out.println("Cannot connect to the discourse database");
             return null;
         }
 

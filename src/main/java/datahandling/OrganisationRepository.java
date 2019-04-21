@@ -1,9 +1,13 @@
 package datahandling;
 
+import models.Organisation;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrganisationRepository {
 
@@ -59,6 +63,39 @@ public class OrganisationRepository {
         } catch (SQLException e){
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public List<Organisation> getOrganisations(){
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from organisation");
+            ResultSet result = statement.executeQuery();
+            List<Organisation> organisationList = new ArrayList<>();
+            while (result.next()) {
+                Organisation organisation = new Organisation(result.getString("name"));
+                organisationList.add(organisation);
+            }
+            return organisationList;
+        } catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Organisation getOrganisationByName(String organisationName){
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from organisation where name = ?");
+            preparedStatement.setString(1,organisationName);
+            preparedStatement.closeOnCompletion();
+            ResultSet result = preparedStatement.executeQuery();
+            Organisation organisation = null;
+            while (result.next()) {
+                organisation = new Organisation(result.getString("name"));
+            }
+            return organisation;
+        } catch (SQLException e){
+            e.printStackTrace();
+            return null;
         }
     }
 }

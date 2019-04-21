@@ -5,6 +5,7 @@ import models.Organisation;
 import views.OrganisationView;
 
 import java.sql.Connection;
+import java.util.List;
 import java.util.Scanner;
 
 public class OrganisationController {
@@ -35,5 +36,18 @@ public class OrganisationController {
             else{
                 organisationView.printSuccessMessage();
             }
+    }
+
+    public Organisation getOrganisationFromUser(Scanner scanner){
+        List<Organisation> organisationList = organisationRepository.getOrganisations();
+        organisationView.printOrganisations(organisationList);
+        String organisationName = organisationView.getOrganisationNameFromUser(scanner);
+        Organisation organisation = organisationRepository.getOrganisationByName(organisationName);
+        while(organisation == null) {
+            organisationView.printInvalidOrganisationNameMessage();
+            organisationName = organisationView.getOrganisationNameFromUser(scanner);
+            organisation = organisationRepository.getOrganisationByName(organisationName);
+        }
+        return organisation;
     }
 }

@@ -7,14 +7,14 @@ import java.sql.Connection;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArgumentTest {
-
+/*
     SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
     Connection connection = sqLiteJDBC.getConnectionToDatabase();
     Argument argumentForTest = new Argument("abc",4,0,2);
 
     public boolean compareTwoObject(Discourse d1, Discourse d2){
 
-        return (d1.getId() == d2.getId() && d1.getDiscourseContent() == d2.getDiscourseContent() && d1.getDiscourse_theme() == d2.getDiscourse_theme());
+        return (d1.getId() == d2.getId() && d1.getcontent() == d2.getcontent() && d1.getDiscourse_theme() == d2.getDiscourse_theme());
     }
 
     @Test
@@ -28,13 +28,13 @@ class ArgumentTest {
     }
 
     @Test
-    void getStartindices() {
-        assertEquals(0,argumentForTest.getStartindices());
+    void getstartIndex() {
+        assertEquals(0,argumentForTest.getstartIndex());
     }
 
     @Test
-    void getEndindices() {
-        assertEquals(2,argumentForTest.getEndindices());
+    void getendIndex() {
+        assertEquals(2,argumentForTest.getendIndex());
     }
 
     @Test
@@ -52,17 +52,17 @@ class ArgumentTest {
     }
 
     @Test
-    void setStartindices() {
+    void setstartIndex() {
         Argument argument = new Argument();
-        argument.setStartindices(0);
-        assertEquals(0,argument.startindices);
+        argument.setstartIndex(0);
+        assertEquals(0,argument.startIndex);
     }
 
     @Test
-    void setEndindices() {
+    void setendIndex() {
         Argument argument = new Argument();
-        argument.setEndindices(2);
-        assertEquals(2,argument.endindices);
+        argument.setendIndex(2);
+        assertEquals(2,argument.endIndex);
     }
 
 
@@ -126,4 +126,5 @@ class ArgumentTest {
         assertEquals("false",result[0]);
         assertEquals("Fail",result[1]);
     }
+    */
 }

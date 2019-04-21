@@ -3,8 +3,7 @@ package steps.organisations;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import function.Organisation;
-import function.SQLiteJDBC;
+import datahandling.SQLiteJDBC;
 import org.junit.Assert;
 
 import java.sql.Connection;
@@ -15,8 +14,10 @@ import java.sql.Connection;
 
 public class OrganisationSteps {
 
+    /*
     SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
     Organisation organisation = new Organisation();
+
 
     Connection connection;
     String[] confirm_insert = new String[2];
@@ -68,10 +69,7 @@ public class OrganisationSteps {
     }
 
 
-
-
-
-
+*/
 
 
 }

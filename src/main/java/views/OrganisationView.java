@@ -1,5 +1,8 @@
 package views;
 
+import models.Organisation;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class OrganisationView {
@@ -39,5 +42,24 @@ public class OrganisationView {
         System.out.println("Please type your organisation name.");
         String organisationName = scanner.nextLine();
         return organisationName;
+    }
+
+    public void printOrganisations(List<Organisation> organisationList){
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("ORGANISATION NAMES");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        for(Organisation organisation : organisationList){
+            System.out.println(organisation.getOrganisationName());
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        }
+    }
+
+    public String getOrganisationNameFromUser(Scanner scanner){
+        System.out.println("Enter an organisation name: ");
+        return scanner.nextLine();
+    }
+
+    public void printInvalidOrganisationNameMessage(){
+        System.out.println("Invalid organisation name entered. Please try again.");
     }
 }

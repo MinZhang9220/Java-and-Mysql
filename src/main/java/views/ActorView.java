@@ -83,4 +83,28 @@ public class ActorView {
         System.out.println("The actor was successfully inserted into the database.");
     }
 
+    public void printActors(List<Actor> actorList){
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("ACTORS");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        for(Actor actor : actorList){
+            System.out.println(actor.getActorid() + " " + actor.getFirstName() + " " + actor.getLastName());
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        }
+    }
+
+    public Integer getActorIdFromUser(Scanner scanner){
+        System.out.println("Enter an actor id: ");
+        while (!scanner.hasNextInt()) {
+            String input = scanner.next();
+            System.out.printf("\"%s\" is not a valid number.\n", input);
+        }
+        Integer id = scanner.nextInt();
+        scanner.nextLine();
+        return id;
+    }
+
+    public void printInvalidActorIdMessage(){
+        System.out.println("Invalid actor id entered. Please try again.");
+    }
 }

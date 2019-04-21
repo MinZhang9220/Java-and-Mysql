@@ -100,4 +100,49 @@ public class ActorRepository {
             return null;
         }
     }
+
+    /**
+     * Method to query the database for a list of all actors, and then return the list.
+     * @return the list of actors
+     */
+    public List<Actor> getActors(){
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from actor");
+            ResultSet result = statement.executeQuery();
+            List<Actor> actorsList = new ArrayList<>();
+            while (result.next()) {
+                Double levelOfTrust = (Double) result.getObject("levelOfTrust");
+                Actor homonymActor = new Actor(result.getInt("actorid"),
+                        result.getString("firstname"),
+                        result.getString("lastname"),
+                        levelOfTrust);
+                actorsList.add(homonymActor);
+            }
+            return actorsList;
+        } catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Actor getActorById(Integer actorid){
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from actor where actorid = ?");
+            preparedStatement.setInt(1,actorid);
+            preparedStatement.closeOnCompletion();
+            ResultSet result = preparedStatement.executeQuery();
+            Actor actor = null;
+            while (result.next()) {
+                Double levelOfTrust = (Double) result.getObject("levelOfTrust");
+                actor = new Actor(result.getInt("actorid"),
+                        result.getString("firstname"),
+                        result.getString("lastname"),
+                        levelOfTrust);
+            }
+            return actor;
+        } catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
