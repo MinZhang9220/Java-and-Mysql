@@ -23,7 +23,7 @@ public class Affiliation {
     }
 
     public boolean isValidDate(String date){
-        if(date == null){
+        if(date.isEmpty()){
             return true;
         }
         else {
@@ -37,7 +37,7 @@ public class Affiliation {
     }
 
     public boolean isValidStartEndDate(String startDateString, String endDateString){
-        if(startDateString == null || endDateString == null){
+        if(startDateString.isEmpty() || endDateString.isEmpty()){
             return true;
         }
         else {
@@ -102,7 +102,7 @@ public class Affiliation {
     }
 
     public void setStartDate(String startDateString) {
-        if(startDateString == null){
+        if(startDateString.isEmpty()){
             this.startDate = null;
         }
         else {
@@ -126,7 +126,7 @@ public class Affiliation {
     }
 
     public void setEndDate(String endDateString) {
-        if(endDateString == null){
+        if(endDateString.isEmpty()){
             this.endDate = null;
         }
         else {
