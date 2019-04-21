@@ -37,25 +37,36 @@ class OrganisationTest {
         assertEquals("Pecking university",organisation.getOrganisationName());
     }
 
+
     @Test
-    @Order(3)
+    void notValidOrganisationName() {
+
+        String ExistedOrganisationName = "University of canterbury";
+        assertFalse(organisation.validOrganisationName(ExistedOrganisationName,connection));
+    }
+
+    @Test
     void validOrganisationName() {
 
         String NotExistedOrganisationName = "University of Tesihua";
-        String ExistedOrganisationName = "University of canterbury";
         assertTrue(organisation.validOrganisationName(NotExistedOrganisationName,connection));
-        assertFalse(organisation.validOrganisationName(ExistedOrganisationName,connection));
     }
 
     @Test
     @Order(4)
     void createOrganisation() {
         String NotExistedOrganisationName = "University of Beijing";
-        String ExistedOrganisationName = "University of canterbury";
         String[] resultWithNotExistedOrganisationName = organisation.createOrganisation(NotExistedOrganisationName,connection);
-        String[] resultWithExistedOrganisationName = organisation.createOrganisation(ExistedOrganisationName,connection);
         assertEquals("true",resultWithNotExistedOrganisationName[0]);
         assertEquals("Success",resultWithNotExistedOrganisationName[1]);
+    }
+
+    @Test
+
+    void createOrganisationFail() {
+
+        String ExistedOrganisationName = "University of canterbury";
+        String[] resultWithExistedOrganisationName = organisation.createOrganisation(ExistedOrganisationName,connection);
         assertEquals("false",resultWithExistedOrganisationName[0]);
         assertEquals("Fail",resultWithExistedOrganisationName[1]);
     }

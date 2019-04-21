@@ -107,8 +107,11 @@ public class ApplicationManager {
                 //do something
             } else if(commandCode.equals("4")){
                 //Register an argument
+                Argument argument = new Argument();
 
                 System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+                System.out.printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
                 System.out.printf("%s%-150s%s%12s%s%12s%s%5s%s\n","|","Content","|","Start indices","|","End indices","|","id","|");
                 System.out.println();
@@ -119,6 +122,17 @@ public class ApplicationManager {
                     System.out.printf("%s%-150s%s%12d%s%12d%s%5d%s\n","|",discourse.getDiscourseContent(),"|",0,"|",discourse.getDiscourseContent().length() - 1,"|",discourse.getId(),"|");
                     System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 }
+                System.out.println("Discourse id: ");
+                Scanner commandScannerForArguments = new Scanner(System.in);
+                int discourseId = commandScannerForArguments.nextInt();
+                System.out.println("Start Indices: ");
+                int startIndices = commandScannerForArguments.nextInt();
+                System.out.println("End Indices: ");
+                int endIndices = commandScannerForArguments.nextInt();
+
+                argument.createArgument(discourseId,startIndices,endIndices,sqLiteJDBC.getConnectionToDatabase());
+
+
 
             } else if(commandCode.equals("q")){
                 //Quit this system
