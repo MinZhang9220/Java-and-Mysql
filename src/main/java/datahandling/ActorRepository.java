@@ -1,6 +1,8 @@
 package datahandling;
 
+import controllers.AffiliationController;
 import models.Actor;
+import models.Affiliation;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -77,9 +79,10 @@ public class ActorRepository {
      * Method to query the database for a list of actors with the same
      * first name and last name as the given actor, and then return the list.
      * @param actor the actor to find homonym actors from
+     * @param affiliationController the controller used to get the actor's affiliations
      * @return the list of homonym actors
      */
-    public List<Actor> getHomonymActors(Actor actor){
+    public List<Actor> getHomonymActors(Actor actor, AffiliationController affiliationController){
         try {
             PreparedStatement statement = connection.prepareStatement("select * from actor where firstname = ? and lastname = ?");
             statement.setString(1, actor.getFirstName());
@@ -92,6 +95,7 @@ public class ActorRepository {
                         result.getString("firstname"),
                         result.getString("lastname"),
                         levelOfTrust);
+                homonymActor.setAffiliations(affiliationController.getAffiliationsByActor(homonymActor));
                 homonymActors.add(homonymActor);
             }
             return homonymActors;

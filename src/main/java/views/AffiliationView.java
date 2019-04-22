@@ -61,4 +61,18 @@ public class AffiliationView {
     public void printSuccessMessage(){
         System.out.println("The affiliation was successfully inserted into the database.");
     }
+
+    /**
+     * Prints a message that there aren't any organisations in the database, and thus an affiliation cannot be created.
+     */
+    public void printNoOrganisationsMessage(){
+        System.out.println("There are no organisations in the database. Please create some first!");
+    }
+
+    /**
+     * Prints a message that there aren't any actors in the database, and thus an affiliation cannot be created.
+     */
+    public void printNoActorsMessage(){
+        System.out.println("There are no actors in the database. Please create some first!");
+    }
 }

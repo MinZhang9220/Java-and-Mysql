@@ -1,6 +1,7 @@
 package views;
 
 import models.Actor;
+import models.Affiliation;
 
 import java.util.List;
 import java.util.Scanner;
@@ -53,7 +54,6 @@ public class ActorView {
     /**
      * Prints a message telling the user that the actor they entered had homonym actor(s).
      * Iterates through the list of homonym actors and prints the details of all of them.
-     * TODO: Implement affiliations within this once affiliations are done.
      */
     public String printHomonymConfirmMessage(List<Actor> homonymActors, Scanner scanner){
         System.out.println("Homonym actor(s) exists in the database with the following details:");
@@ -61,6 +61,24 @@ public class ActorView {
             System.out.println("Actor id: " + actor.getActorid());
             System.out.println("Actor name: " + actor.getFirstName() + " " + actor.getLastName());
             System.out.println("Actor's level of trust: " + actor.getLevelOfTrust());
+            List<Affiliation> affiliationList = actor.getAffiliations();
+            if(affiliationList.size() > 0) {
+                System.out.println("Affiliation(s): ");
+                for (Affiliation affiliation : actor.getAffiliations()) {
+                    System.out.println("Organisation: " + affiliation.getOrganisation().getOrganisationName());
+                    if (affiliation.getStartDateString() != null) {
+                        System.out.println("Start date: " + affiliation.getStartDateString());
+                    }
+                    if (affiliation.getEndDateString() != null) {
+                        System.out.println("End date: " + affiliation.getEndDateString());
+                    }
+                    if (affiliation.getRole() != null) {
+                        System.out.println("Role: " + affiliation.getRole());
+                    }
+                    System.out.println();
+                }
+            }
+            System.out.println();
         }
         System.out.println("Would you still like to add the actor into the system? (yes/no to answer)");
         String answer = scanner.nextLine();
@@ -107,4 +125,6 @@ public class ActorView {
     public void printInvalidActorIdMessage(){
         System.out.println("Invalid actor id entered. Please try again.");
     }
+
+
 }

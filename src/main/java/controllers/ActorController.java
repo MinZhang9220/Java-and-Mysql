@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class ActorController {
     private ActorRepository actorRepository;
     private ActorView actorView;
+    private AffiliationController affiliationController;
 
     /**
      * Consructor for the actor controller class.
@@ -45,7 +46,7 @@ public class ActorController {
             actorView.printLastNameEmptyMessage();
         }
         else if(actor.isActorHomonym(actorRepository)){
-            List<Actor> homonymActors = actor.getHomonymActors(actorRepository);
+            List<Actor> homonymActors = actor.getHomonymActors(actorRepository,affiliationController);
             String confirmationAnswer = "undefined";
             while(!confirmationAnswer.equalsIgnoreCase("yes")
             && !confirmationAnswer.equalsIgnoreCase("no")){
@@ -69,16 +70,30 @@ public class ActorController {
         }
     }
 
+    /**
+     * Method to get an actor based on the user's input on what actor they want.
+     * @param scanner the scanner to get the user's input
+     * @return the actor based on the user's input
+     */
     public Actor getActorFromUser(Scanner scanner){
         List<Actor> actorList = actorRepository.getActors();
-        actorView.printActors(actorList);
-        Integer id = actorView.getActorIdFromUser(scanner);
-        Actor actor = actorRepository.getActorById(id);
-        while(actor == null) {
-            actorView.printInvalidActorIdMessage();
-            id = actorView.getActorIdFromUser(scanner);
-            actor = actorRepository.getActorById(id);
+        if(actorList.size() == 0){
+            return null;
         }
-        return actor;
+        else {
+            actorView.printActors(actorList);
+            Integer id = actorView.getActorIdFromUser(scanner);
+            Actor actor = actorRepository.getActorById(id);
+            while (actor == null) {
+                actorView.printInvalidActorIdMessage();
+                id = actorView.getActorIdFromUser(scanner);
+                actor = actorRepository.getActorById(id);
+            }
+            return actor;
+        }
+    }
+
+    public void setAffiliationController(AffiliationController affiliationController) {
+        this.affiliationController = affiliationController;
     }
 }

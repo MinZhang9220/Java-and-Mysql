@@ -38,6 +38,11 @@ public class OrganisationView {
         System.out.println("The organisation name is empty.");
     }
 
+    /**
+     *
+     * @param scanner
+     * @return
+     */
     public String getOrganisationDetails(Scanner scanner){
         System.out.println("Please type your organisation name.");
         String organisationName = scanner.nextLine();

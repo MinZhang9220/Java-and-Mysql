@@ -1,19 +1,33 @@
 package controllers;
 
 import datahandling.AffiliationRepository;
+import datahandling.OrganisationRepository;
 import models.Actor;
 import models.Affiliation;
 import models.Organisation;
 import views.AffiliationView;
 
 import java.sql.Connection;
+import java.util.List;
 import java.util.Scanner;
 
 public class AffiliationController {
 
+    /**
+     * The affiliation repository used to make queries to the database
+     */
     private AffiliationRepository affiliationRepository;
+    /**
+     * The  affiliation view used to provide feedback to the user on their actions
+     */
     private AffiliationView affiliationView;
+    /**
+     * The organisation controller used to link an affiliation to an organisation
+     */
     private OrganisationController organisationController;
+    /**
+     * The actor controller used to link an actor to an organisation
+     */
     private ActorController actorController;
 
     /**
@@ -29,49 +43,62 @@ public class AffiliationController {
         this.actorController = actorController;
     }
 
+
+    /**
+     * Method to create an affiliation. Requires there to be at least one organisation and actor in the database.
+     * Validates the affiliation according to the ACs for story 2.
+     * @param scanner the scanner used to receive user input
+     */
     public void createAffiliation(Scanner scanner){
         Affiliation affiliation = new Affiliation();
         Organisation organisation = organisationController.getOrganisationFromUser(scanner);
-        affiliation.setOrganisation(organisation);
-        Actor actor = actorController.getActorFromUser(scanner);
-        affiliation.setActor(actor);
-        String role = affiliationView.getRole(scanner);
-        while(!affiliation.setRole(role)){
-            role = affiliationView.getRole(scanner);
+        if(organisation == null){
+            affiliationView.printNoOrganisationsMessage();
         }
-        String[] startEndDates = affiliationView.getStartEndDates(scanner);
-        String potentialStartDate = startEndDates[0];
-        String potentialEndDate = startEndDates[1];
-        boolean validStartEndDate = false;
-        while(!validStartEndDate){
-            if(!affiliation.isValidDate(potentialStartDate)){
-                //print invalid start date message
-                affiliationView.printInvalidStartDateMessage();
+        else {
+            affiliation.setOrganisation(organisation);
+            Actor actor = actorController.getActorFromUser(scanner);
+            if(actor == null){
+                affiliationView.printNoActorsMessage();
             }
-            else if(!affiliation.isValidDate(potentialEndDate)){
-                //print invalid end date message
-                affiliationView.printInvalidEndDateMessage();
-            }
-            else if(!affiliation.isValidStartEndDate(potentialStartDate,potentialEndDate)){
-                //print start date is after end date message
-                affiliationView.printInvalidStartEndDateMessage();
-            }
-            else{
-                validStartEndDate = true;
-            }
-            if(validStartEndDate == false){
-                startEndDates = affiliationView.getStartEndDates(scanner);
-                potentialStartDate = startEndDates[0];
-                potentialEndDate = startEndDates[1];
+            else {
+                affiliation.setActor(actor);
+                String role = affiliationView.getRole(scanner);
+                while (!affiliation.setRole(role)) {
+                    role = affiliationView.getRole(scanner);
+                }
+                String[] startEndDates = affiliationView.getStartEndDates(scanner);
+                String potentialStartDate = startEndDates[0];
+                String potentialEndDate = startEndDates[1];
+                boolean validStartEndDate = false;
+                while (!validStartEndDate) {
+                    if (!affiliation.isValidDate(potentialStartDate)) {
+                        affiliationView.printInvalidStartDateMessage();
+                    } else if (!affiliation.isValidDate(potentialEndDate)) {
+                        affiliationView.printInvalidEndDateMessage();
+                    } else if (!affiliation.isValidStartEndDate(potentialStartDate, potentialEndDate)) {
+                        affiliationView.printInvalidStartEndDateMessage();
+                    } else {
+                        validStartEndDate = true;
+                    }
+                    if (validStartEndDate == false) {
+                        startEndDates = affiliationView.getStartEndDates(scanner);
+                        potentialStartDate = startEndDates[0];
+                        potentialEndDate = startEndDates[1];
+                    }
+                }
+                affiliation.setStartDate(potentialStartDate);
+                affiliation.setEndDate(potentialEndDate);
+                if (!affiliation.insertAffiliationIntoDatabase(affiliationRepository)) {
+                    affiliationView.printFailureMessage();
+                } else {
+                    affiliationView.printSuccessMessage();
+                }
             }
         }
-        affiliation.setStartDate(potentialStartDate);
-        affiliation.setEndDate(potentialEndDate);
-        if(!affiliation.insertAffiliationIntoDatabase(affiliationRepository)){
-            affiliationView.printFailureMessage();
-        }
-        else{
-            affiliationView.printSuccessMessage();
-        }
+    }
+
+    public List<Affiliation> getAffiliationsByActor(Actor actor){
+        return affiliationRepository.getAffiliationsByActor(actor, organisationController.getOrganisationRepository());
     }
 }

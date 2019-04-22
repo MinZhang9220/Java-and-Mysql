@@ -1,6 +1,8 @@
 package models;
 
+import controllers.AffiliationController;
 import datahandling.ActorRepository;
+import datahandling.AffiliationRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +16,7 @@ public class Actor {
     private String firstName;
     private String lastName;
     private Double levelOfTrust;
+    private List<Affiliation> affiliations;
 
     /**
      * Constructs an Actor with a given actor id, first name, last name and level of trust.
@@ -64,8 +67,8 @@ public class Actor {
      * @param actorRepository the repository used to make queries to the database
      * @return a list of homonym actors
      */
-    public List<Actor> getHomonymActors(ActorRepository actorRepository){
-        return actorRepository.getHomonymActors(this);
+    public List<Actor> getHomonymActors(ActorRepository actorRepository, AffiliationController affiliationController){
+        return actorRepository.getHomonymActors(this, affiliationController);
     }
 
     /**
@@ -90,6 +93,14 @@ public class Actor {
 
     public Double getLevelOfTrust() {
         return levelOfTrust;
+    }
+
+    public List<Affiliation> getAffiliations() {
+        return affiliations;
+    }
+
+    public void setAffiliations(List<Affiliation> affiliations) {
+        this.affiliations = affiliations;
     }
 
     /**

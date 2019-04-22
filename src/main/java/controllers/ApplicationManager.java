@@ -23,6 +23,7 @@ public class ApplicationManager {
 
         AffiliationController affiliationController =
                 new AffiliationController(connection, actorController, organisationController);
+        actorController.setAffiliationController(affiliationController);
 
         System.out.println("Welcome to Discourse System");
         System.out.println("----------------------------");

@@ -40,14 +40,23 @@ public class OrganisationController {
 
     public Organisation getOrganisationFromUser(Scanner scanner){
         List<Organisation> organisationList = organisationRepository.getOrganisations();
-        organisationView.printOrganisations(organisationList);
-        String organisationName = organisationView.getOrganisationNameFromUser(scanner);
-        Organisation organisation = organisationRepository.getOrganisationByName(organisationName);
-        while(organisation == null) {
-            organisationView.printInvalidOrganisationNameMessage();
-            organisationName = organisationView.getOrganisationNameFromUser(scanner);
-            organisation = organisationRepository.getOrganisationByName(organisationName);
+        if(organisationList.size() == 0){
+            return null;
         }
-        return organisation;
+        else {
+            organisationView.printOrganisations(organisationList);
+            String organisationName = organisationView.getOrganisationNameFromUser(scanner);
+            Organisation organisation = organisationRepository.getOrganisationByName(organisationName);
+            while (organisation == null) {
+                organisationView.printInvalidOrganisationNameMessage();
+                organisationName = organisationView.getOrganisationNameFromUser(scanner);
+                organisation = organisationRepository.getOrganisationByName(organisationName);
+            }
+            return organisation;
+        }
+    }
+
+    public OrganisationRepository getOrganisationRepository(){
+        return organisationRepository;
     }
 }

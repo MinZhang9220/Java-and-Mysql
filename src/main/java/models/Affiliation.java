@@ -16,6 +16,14 @@ public class Affiliation {
     private LocalDate endDate;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+    public Affiliation(Actor actor, Organisation organisation, String role, LocalDate startDate, LocalDate endDate){
+        this.actor = actor;
+        this.organisation = organisation;
+        this.role = role;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
     public Affiliation(){}
 
     public boolean insertAffiliationIntoDatabase(AffiliationRepository affiliationRepository){
@@ -78,7 +86,11 @@ public class Affiliation {
     }
 
     public boolean setRole(String role) {
-        if(role.isEmpty()){
+        if(role == null){
+            this.role = null;
+            return true;
+        }
+        else if(role.isEmpty()){
             this.role = null;
             return true;
         }
