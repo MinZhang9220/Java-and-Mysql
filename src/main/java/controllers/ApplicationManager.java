@@ -13,7 +13,7 @@ public class ApplicationManager {
         SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
 
         Connection connection;
-        if(args != null){
+        if(args.length != 0){
             if(args[0].equalsIgnoreCase("test")){
                 connection = sqLiteJDBC.getConnectionToDatabase("test");
             }
