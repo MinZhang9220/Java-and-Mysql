@@ -1,0 +1,23 @@
+Welcome to Discourse System
+----------------------------
+
+
+
+-----------------------------------------
+|  CommandCode | Command Content        |
+-----------------------------------------
+|        1     | Create organisation    |
+-----------------------------------------
+|        2     | Create Actor           |
+-----------------------------------------
+|        3     | Register an affiliation|
+-----------------------------------------
+|        4     | Register an argument   |
+-----------------------------------------
+|        q     | Quit                   |
+-----------------------------------------
+Type your command code
+Please type your organisation name.
+The organisation was successfully inserted into the database.
+Type your command code
+Exiting Application

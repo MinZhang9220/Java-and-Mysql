@@ -1,0 +1,37 @@
+Welcome to Discourse System
+----------------------------
+
+
+
+-----------------------------------------
+|  CommandCode | Command Content        |
+-----------------------------------------
+|        1     | Create organisation    |
+-----------------------------------------
+|        2     | Create Actor           |
+-----------------------------------------
+|        3     | Register an affiliation|
+-----------------------------------------
+|        4     | Register an argument   |
+-----------------------------------------
+|        q     | Quit                   |
+-----------------------------------------
+Type your command code
+Please type the actor's first name.
+Please type the actor's last name.
+Please type the actor's level of trust on a scale of 0.0 to 1.0 (leave blank for unknown).
+Homonym actor(s) exists in the database with the following details:
+Actor id: 1
+Actor name: Izuku Midoriya
+Actor's level of trust: null
+Affiliation(s): 
+Organisation: University of Canterbury
+Start date: 2017-02-18
+End date: 2020-12-20
+Role: Hero
+
+
+Would you still like to add the actor into the system? (yes/no to answer)
+The actor was successfully inserted into the database.
+Type your command code
+Exiting Application
