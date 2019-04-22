@@ -4,20 +4,17 @@
 Feature: Organisation functionality
 
 
-  Background: Connect to database
-    Given I am connected to the discourse database
+  Background: Connected to the database
+    Given I am connected to the test database
 
-  Scenario: Insert an organisation into organisation table with an not existed organisation name
-    Given The organisation with name "university of auckland" dose not exists
-    When I insert organisation with existed name "university of auckland" to organisation
-    Then I got a confirmation message with "Success" as I insert successfully.
+  Scenario: Creating an organisation with a unique organisation name
+    Given The organisation with name "University of Canterbury" does not exist
+    When I create an organisation with the unique name University of Canterbury using input from the file "CreateAnOrganisationNamedUniversityOfCanterbury"
+    Then The organisation with name "University of Canterbury" is stored in the database
+    And The resulting command line log has a success confirmation message and matches the file "CreatingAnOrganisationWithAUniqueOrganisationName"
 
-  Scenario: Insert an organisation into organisation table with an existed organisation name
-    Given The organisation with name "University of canterbury" exists
-    When I insert organisation with not existed name "University of canterbury" to organisation
-    Then I got a confirmation message with "Fail" as I insert fail.
-
-
-
-
-
+  Scenario: Creating an organisation with an existing name
+    Given The organisation with name "University of Canterbury" already exists in the database
+    When I create an organisation with the non unique name University of Canterbury using input from the file "CreateAnOrganisationNamedUniversityOfCanterbury"
+    Then There will still only be one organisation with name "University of Canterbury" in the database
+    And The resulting command line log has an error message and matches the file "CreatingAnOrganisationWithAnExistingName"

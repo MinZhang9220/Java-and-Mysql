@@ -11,7 +11,20 @@ public class ApplicationManager {
 
     public static void main(String[] args) {
         SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
-        Connection connection = sqLiteJDBC.getConnectionToDatabase("main");
+
+        Connection connection;
+        if(args != null){
+            if(args[0].equalsIgnoreCase("test")){
+                connection = sqLiteJDBC.getConnectionToDatabase("test");
+            }
+            else{
+                connection = sqLiteJDBC.getConnectionToDatabase("main");
+            }
+        }
+        else{
+            connection = sqLiteJDBC.getConnectionToDatabase("main");
+        }
+
 
         OrganisationController organisationController = new OrganisationController(connection);
 
@@ -95,5 +108,6 @@ public class ApplicationManager {
                     break;
             }
         }
+        System.out.println("Exiting Application");
     }
 }

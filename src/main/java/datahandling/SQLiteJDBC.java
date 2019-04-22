@@ -11,7 +11,7 @@ public class SQLiteJDBC {
     public Connection getConnectionToDatabase(String databaseType){
         String url = "jdbc:sqlite:discourse.sqlite";
         if(databaseType.equalsIgnoreCase("test")){
-            url = "jdbc:sqlite:test.sqlite";
+            url = "jdbc:sqlite:testDatabase.sqlite";
         }
         try{
             Connection connection = DriverManager.getConnection(url);
