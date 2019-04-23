@@ -264,6 +264,162 @@ public class ActorTestSteps {
         }
     }
 
+    @Given("There are no actors with an empty first name {string} and empty last name {string} in the database")
+    public void thereAreNoActorsWithAnEmptyFirstNameAndEmptyLastNameInTheDatabase(String string, String string2) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select count(*) as total from actor where firstname = ? and lastname = ?");
+            statement.setString(1, string);
+            statement.setString(2, string2);
+            ResultSet result = statement.executeQuery();
+            int count = 0;
+            while (result.next()) {
+                count = result.getInt("total");
+            }
+            Assert.assertTrue(count == 0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @When("I create an actor with an empty first name and empty last name and level of trust of one using the file {string}")
+    public void iCreateAnActorWithAnEmptyFirstNameAndEmptyLastNameAndLevelOfTrustOfOneUsingTheFile(String string) {
+        runApplicationWithFile(string);
+    }
+
+    @Then("The actor without a name of first name {string} and last name {string} is not stored into the database")
+    public void theActorWithoutANameOfFirstNameAndLastNameIsNotStoredIntoTheDatabase(String string, String string2) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select count(*) as total from actor where firstname = ? and lastname = ?");
+            statement.setString(1, string);
+            statement.setString(2, string2);
+            ResultSet result = statement.executeQuery();
+            int count = 0;
+            while (result.next()) {
+                count = result.getInt("total");
+            }
+            Assert.assertTrue(count == 0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Then("The resulting command line log from unsuccessfully creating an actor with no name has an error message and matches the file {string}")
+    public void theResultingCommandLineLogFromUnsuccessfullyCreatingAnActorWithNoNameHasAnErrorMessageAndMatchesTheFile(String string) {
+        try {
+            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
+            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
+            Assert.assertEquals(result, outContent.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Given("There are no actors with first name {string} and empty last name {string} in the database")
+    public void thereAreNoActorsWithFirstNameAndEmptyLastNameInTheDatabase(String string, String string2) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select count(*) as total from actor where firstname = ? and lastname = ?");
+            statement.setString(1, string);
+            statement.setString(2, string2);
+            ResultSet result = statement.executeQuery();
+            int count = 0;
+            while (result.next()) {
+                count = result.getInt("total");
+            }
+            Assert.assertTrue(count == 0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @When("I create an actor with first name Peter and empty last name and level of trust of one using the file {string}")
+    public void iCreateAnActorWithFirstNamePeterAndEmptyLastNameAndLevelOfTrustOfOneUsingTheFile(String string) {
+        runApplicationWithFile(string);
+    }
+
+    @Then("The actor of first name {string} and last name {string} is not stored into the database")
+    public void theActorOfFirstNameAndLastNameIsNotStoredIntoTheDatabase(String string, String string2) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select count(*) as total from actor where firstname = ? and lastname = ?");
+            statement.setString(1, string);
+            statement.setString(2, string2);
+            ResultSet result = statement.executeQuery();
+            int count = 0;
+            while (result.next()) {
+                count = result.getInt("total");
+            }
+            Assert.assertTrue(count == 0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Then("The resulting command line log from unsuccessfully creating an actor with an empty last name has an error message and matches the file {string}")
+    public void theResultingCommandLineLogFromUnsuccessfullyCreatingAnActorWithAnEmptyLastNameHasAnErrorMessageAndMatchesTheFile(String string) {
+        try {
+            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
+            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
+            Assert.assertEquals(result, outContent.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Given("There are no actors with first name {string} and last name {string} in the database")
+    public void thereAreNoActorsWithFirstNameAndLastNameInTheDatabase(String string, String string2) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select count(*) as total from actor where firstname = ? and lastname = ?");
+            statement.setString(1, string);
+            statement.setString(2, string2);
+            ResultSet result = statement.executeQuery();
+            int count = 0;
+            while (result.next()) {
+                count = result.getInt("total");
+            }
+            Assert.assertTrue(count == 0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @When("I create an actor with first name Peter and last name Parker but level of trust of less than zero then more than one then one using the file {string}")
+    public void iCreateAnActorWithFirstNamePeterAndLastNameParkerButLevelOfTrustOfLessThanZeroThenMoreThanOneThenOneUsingTheFile(String string) {
+        runApplicationWithFile(string);
+    }
+
+    @Then("The actor of first name {string} and last name {string} is stored into the database with level of trust of one")
+    public void theActorOfFirstNameAndLastNameIsStoredIntoTheDatabaseWithLevelOfTrustOfOne(String string, String string2) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select leveloftrust from actor where firstname = ? and lastname = ?");
+            statement.setString(1, string);
+            statement.setString(2, string2);
+            ResultSet result = statement.executeQuery();
+            Double levelOfTrust = 0.0;
+            while (result.next()) {
+                levelOfTrust = result.getDouble("levelOfTrust");
+            }
+            Assert.assertTrue(levelOfTrust == 1.0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Then("The resulting command line log has two error messages for invalid level of trust and matches the file {string}")
+    public void theResultingCommandLineLogHasTwoErrorMessagesForInvalidLevelOfTrustAndMatchesTheFile(String string) {
+        try {
+            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
+            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
+            Assert.assertEquals(result, outContent.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void runApplicationWithFile(String filePath){
         ApplicationManager application = new ApplicationManager();
         String[] args = {"test"};
