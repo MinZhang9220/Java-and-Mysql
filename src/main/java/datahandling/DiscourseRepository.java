@@ -18,7 +18,7 @@ public class DiscourseRepository {
                     "Gen Eisenhower announced the D-Day landings at Normandy to the people of France and Western Europe.";
             String contentThree = "Delivered in secret before a rapt audience of Communist apparatchiks," +
                     "this remarkable speech by a Soviet leader helped destroy Stalin’s reputation. ";
-            String contentFour = "   Sometimes I do feel like I'm a failure. Like there's no hope for me. " +
+            String contentFour = "   Sometimes I do feel like I'm a failure. Like there's no hope for me? " +
                     "But even so, I'm not gonna give up. Ever!";
             //start index 50 is valid
             String contentFive = "I have to work harder than anyone else to make it! I'll never catch up otherwise! " +

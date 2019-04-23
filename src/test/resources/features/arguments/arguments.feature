@@ -24,6 +24,12 @@ Feature: Argument functionality
     And There is no argument with discourse id 5 and start index 0 and end index 136 in the database
     And The resulting command line log has an identical argument error message and it matches the file "CreatingAnIdenticalArgumentWithWhitespace"
 
+  Scenario: Creating an argument from a sentence starting after a question mark and ending with an exclamation mark
+    Given  There exists no identical arguments in the database with discourse id 4 and start index 71 and end index 112
+    When I rephrase the argument sentence extracted from discourse id four and defined by start index seventy one and end index one hundred and twelve to the rephrasing Plus Ultra! using the file "CreateAValidArgumentWithoutFullStops"
+    Then The argument of discourse id 4 and start index 71 and end index 112 and rephrasing "Plus ultra!" is successfully stored into the database
+    And The resulting command line log from creating the argument contains a success confirmation message and matches the file "CreatingAValidArgumentWithoutFullStops"
+
   #Scenario: Insert an argument into database
    # Given  The argument which be rephrased from discourse 1 with start indices is 1 and end indices is 10 dose not exist in database
     #When I rephrased an argument from the discourse with it's id is 1,with start indices is 1,end indices is 10 for insert into database

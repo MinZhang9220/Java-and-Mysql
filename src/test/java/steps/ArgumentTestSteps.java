@@ -193,6 +193,53 @@ public class ArgumentTestSteps {
         testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
+    @Given("There exists no identical arguments in the database with discourse id {int} and start index {int} and end index {int}")
+    public void thereExistsNoIdenticalArgumentsInTheDatabaseWithDiscourseIdAndStartIndexAndEndIndex(Integer int1, Integer int2, Integer int3) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select count(*) as total from argument where discourseid = ? and startindex = ? and endindex = ?");
+            statement.setInt(1, int1);
+            statement.setInt(2, int2);
+            statement.setInt(3, int3);
+            ResultSet result = statement.executeQuery();
+            int count = 0;
+            while (result.next()) {
+                count = result.getInt("total");
+            }
+            Assert.assertFalse(count > 0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @When("I rephrase the argument sentence extracted from discourse id four and defined by start index seventy one and end index one hundred and twelve to the rephrasing Plus Ultra! using the file {string}")
+    public void iRephraseTheArgumentSentenceExtractedFromDiscourseIdFourAndDefinedByStartIndexSeventyOneAndEndIndexOneHundredAndTwelveToTheRephrasingPlusUltraUsingTheFile(String string) {
+        runApplicationWithFile(string);
+    }
+
+    @Then("The argument of discourse id {int} and start index {int} and end index {int} and rephrasing {string} is successfully stored into the database")
+    public void theArgumentOfDiscourseIdAndStartIndexAndEndIndexAndRephrasingIsSuccessfullyStoredIntoTheDatabase(Integer int1, Integer int2, Integer int3, String string) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select count(*) as total from argument where discourseid = ? and startindex = ? and endindex = ? and rephrasing = ?");
+            statement.setInt(1, int1);
+            statement.setInt(2, int2);
+            statement.setInt(3, int3);
+            statement.setString(4, string);
+            ResultSet result = statement.executeQuery();
+            int count = 0;
+            while (result.next()) {
+                count = result.getInt("total");
+            }
+            Assert.assertTrue(count == 1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Then("The resulting command line log from creating the argument contains a success confirmation message and matches the file {string}")
+    public void theResultingCommandLineLogFromCreatingTheArgumentContainsASuccessConfirmationMessageAndMatchesTheFile(String string) {
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
+    }
+
     public void runApplicationWithFile(String filePath){
         ApplicationManager application = new ApplicationManager();
         String[] args = {"test"};
