@@ -13,8 +13,12 @@ public class ApplicationManager {
         SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
 
         Connection connection;
+
+        boolean isTestDatabase = false;
+
         if(args.length != 0){
             if(args[0].equalsIgnoreCase("test")){
+                isTestDatabase = true;
                 connection = sqLiteJDBC.getConnectionToDatabase("test");
             }
             else{
@@ -30,7 +34,7 @@ public class ApplicationManager {
 
         ActorController actorController = new ActorController(connection);
 
-        DiscourseController discourseController = new DiscourseController();
+        DiscourseController discourseController = new DiscourseController(isTestDatabase);
 
         ArgumentController argumentController = new ArgumentController(connection, discourseController);
 

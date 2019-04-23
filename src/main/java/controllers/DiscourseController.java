@@ -15,8 +15,8 @@ public class DiscourseController {
     private DiscourseView discourseView;
 
 
-    public DiscourseController(){
-        discourseRepository = new DiscourseRepository();
+    public DiscourseController(boolean isTestDatabase){
+        discourseRepository = new DiscourseRepository(isTestDatabase);
         discourseView = new DiscourseView();
     }
 

@@ -145,15 +145,7 @@ public class AffiliationTestSteps {
 
     @Then("The resulting command line log has an error message that there are no organisations and matches the file {string}")
     public void theResultingCommandLineLogHasAnErrorMessageThatThereAreNoOrganisationsAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     @Given("All actors are deleted so there are no actors in the database")
@@ -195,15 +187,7 @@ public class AffiliationTestSteps {
 
     @Then("The resulting command line log has an error message that there are no actors and matches the file {string}")
     public void theResultingCommandLineLogHasAnErrorMessageThatThereAreNoActorsAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     @Given("The actor with first name {string} and last name {string} already has an affiliation to the organisation {string} with role {string} and start date {string} and end date {string}")
@@ -319,15 +303,7 @@ public class AffiliationTestSteps {
 
     @Then("The resulting command line log has an error message that the end date is prior to start date and matches the file {string}")
     public void theResultingCommandLineLogHasAnErrorMessageThatTheEndDateIsPriorToStartDateAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     public void runApplicationWithFile(String filePath) throws NoSuchElementException{

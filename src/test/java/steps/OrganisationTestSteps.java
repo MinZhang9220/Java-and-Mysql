@@ -84,15 +84,7 @@ public class OrganisationTestSteps {
 
     @Then("The resulting command line log has a success confirmation message and matches the file {string}")
     public void theResultingCommandLineLogHasASuccessConfirmationMessageAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     @Given("The organisation with name {string} already exists in the database")
@@ -133,15 +125,7 @@ public class OrganisationTestSteps {
 
     @Then("The resulting command line log has an error message and matches the file {string}")
     public void theResultingCommandLineLogHasAnErrorMessageAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     public void runApplicationWithFile(String filePath){

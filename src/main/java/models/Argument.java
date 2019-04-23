@@ -37,9 +37,9 @@ public class Argument {
      * @param startIndex
      * @return
      */
-    public boolean isValidStartIndex(int startIndex){
+    public int isValidStartIndex(int startIndex){
         if(startIndex < 0 || startIndex >= discourse.getContent().length() - 2){
-            return false;
+            return -1;
         }
         else {
             if(startIndex != 0) {
@@ -51,20 +51,20 @@ public class Argument {
                     }
                 }
                 if (!Arrays.asList(endingPunctuationMarks).contains(startIndexCharacter) && startIndex != 0) {
-                    return false;
+                    return -1;
                 } else {
-                    return true;
+                    return startIndex;
                 }
             }
             else{
-                return true;
+                return startIndex;
             }
         }
     }
 
-    public boolean isValidEndIndex(int endIndex){
+    public int isValidEndIndex(int endIndex){
         if(endIndex < 1 || endIndex > discourse.getContent().length() - 1){
-            return false;
+            return -1;
         }
         else {
             String endIndexCharacter = String.valueOf(discourse.getContent().charAt(endIndex));
@@ -73,10 +73,10 @@ public class Argument {
                 endIndexCharacter = String.valueOf(discourse.getContent().charAt(endIndex));
             }
             if(!Arrays.asList(endingPunctuationMarks).contains(endIndexCharacter)){
-                return false;
+                return -1;
             }
             else{
-                return true;
+                return endIndex;
             }
         }
     }

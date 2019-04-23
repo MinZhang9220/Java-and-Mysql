@@ -1,5 +1,5 @@
 # Created by minzhang at 2019-04-20
-Feature: Arugment functionality
+Feature: Actor functionality
 
   Background: Connected to the database
     Given I am connected to the test database

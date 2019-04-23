@@ -29,11 +29,13 @@ public class ArgumentController {
         Integer endIndex= startEndIndices.get(1);
         boolean startEndValid = false;
         while(!startEndValid){
-            if(!argument.isValidStartIndex(startIndex)){
+            startIndex = argument.isValidStartIndex(startIndex);
+            endIndex = argument.isValidEndIndex(endIndex);
+            if(startIndex == -1){
                 //print non valid start index message
                 argumentView.printInvalidStartIndexMessage();
             }
-            else if(!argument.isValidEndIndex(endIndex)){
+            else if(endIndex  == -1){
                 //print non valid end index message
                 argumentView.printInvalidEndIndexMessage();
             }

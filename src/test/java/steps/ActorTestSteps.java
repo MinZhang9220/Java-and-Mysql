@@ -78,15 +78,7 @@ public class ActorTestSteps {
 
     @Then("the resulting command line log from creating an actor has a confirmation message and matches the file {string}")
     public void theResultingCommandLineLogFromCreatingAnActorHasAConfirmationMessageAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     @Given("There is one actor with first name {string} and last name {string} in the database")
@@ -166,15 +158,7 @@ public class ActorTestSteps {
 
     @Then("The resulting command line log from unsuccessfully creating an actor has a confirmation message and matches the file {string}")
     public void theResultingCommandLineLogFromUnsuccessfullyCreatingAnActorHasAConfirmationMessageAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     @Given("There is an actor with first name {string} and last name {string} in the database")
@@ -253,15 +237,7 @@ public class ActorTestSteps {
 
     @Then("The resulting command line log from successfully creating an actor has a confirmation message and matches the file {string}")
     public void theResultingCommandLineLogFromSuccessfullyCreatingAnActorHasAConfirmationMessageAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     @Given("There are no actors with an empty first name {string} and empty last name {string} in the database")
@@ -305,15 +281,7 @@ public class ActorTestSteps {
 
     @Then("The resulting command line log from unsuccessfully creating an actor with no name has an error message and matches the file {string}")
     public void theResultingCommandLineLogFromUnsuccessfullyCreatingAnActorWithNoNameHasAnErrorMessageAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     @Given("There are no actors with first name {string} and empty last name {string} in the database")
@@ -357,15 +325,7 @@ public class ActorTestSteps {
 
     @Then("The resulting command line log from unsuccessfully creating an actor with an empty last name has an error message and matches the file {string}")
     public void theResultingCommandLineLogFromUnsuccessfullyCreatingAnActorWithAnEmptyLastNameHasAnErrorMessageAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     @Given("There are no actors with first name {string} and last name {string} in the database")
@@ -409,15 +369,7 @@ public class ActorTestSteps {
 
     @Then("The resulting command line log has two error messages for invalid level of trust and matches the file {string}")
     public void theResultingCommandLineLogHasTwoErrorMessagesForInvalidLevelOfTrustAndMatchesTheFile(String string) {
-        try {
-            InputStream fips = new FileInputStream(new File("./src/test/resources/inputfiles/" + string));
-            String result = IOUtils.toString(fips, StandardCharsets.UTF_8);
-            Assert.assertEquals(result, outContent.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        testDatabaseManager.compareStringToFile(outContent.toString(), string);
     }
 
     public void runApplicationWithFile(String filePath){
