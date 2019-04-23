@@ -46,13 +46,7 @@ public class ActorController {
             actorView.printLastNameEmptyMessage();
         }
         else if(actor.isActorHomonym(actorRepository)){
-            List<Actor> homonymActors = actor.getHomonymActors(actorRepository,affiliationController);
-            String confirmationAnswer = "undefined";
-            while(!confirmationAnswer.equalsIgnoreCase("yes")
-            && !confirmationAnswer.equalsIgnoreCase("no")){
-                confirmationAnswer = actorView.printHomonymConfirmMessage(homonymActors, scanner);
-            }
-            if(confirmationAnswer.equalsIgnoreCase("no")){
+            if(!getHomonymActorConfirmationFromUser(scanner, actor)){
                 actorView.printFailureMessage();
             }
             else if(!actor.insertActorIntoDatabase(actorRepository)){
@@ -67,6 +61,21 @@ public class ActorController {
         }
         else{
             actorView.printSuccessMessage();
+        }
+    }
+
+    public boolean getHomonymActorConfirmationFromUser(Scanner scanner, Actor actor){
+        List<Actor> homonymActors = actor.getHomonymActors(actorRepository,affiliationController);
+        String confirmationAnswer = "undefined";
+        while(!confirmationAnswer.equalsIgnoreCase("yes")
+                && !confirmationAnswer.equalsIgnoreCase("no")){
+            confirmationAnswer = actorView.printHomonymConfirmMessage(homonymActors, scanner);
+        }
+        if(confirmationAnswer.equalsIgnoreCase("no")){
+            return false;
+        }
+        else{
+            return true;
         }
     }
 
@@ -91,6 +100,10 @@ public class ActorController {
             }
             return actor;
         }
+    }
+
+    public AffiliationController getAffiliationController() {
+        return affiliationController;
     }
 
     public void setAffiliationController(AffiliationController affiliationController) {

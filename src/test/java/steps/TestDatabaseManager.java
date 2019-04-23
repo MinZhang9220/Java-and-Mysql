@@ -9,8 +9,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class TestDatabaseManager {
 
+    /**
+     * Resets the database and closes the database connection
+     * @param connection the connection to the database
+     */
     public void resetDatabase(Connection connection){
         try {
             PreparedStatement statement = connection.prepareStatement("delete from affiliation");
@@ -38,6 +44,56 @@ public class TestDatabaseManager {
         } catch (IOException e) {
             e.printStackTrace();
             Assert.fail(e.getMessage());
+        }
+    }
+
+    public void populateDatabaseWithOrganisations(Connection connection){
+        try{
+            PreparedStatement statement = connection.prepareStatement("insert into organisation(name) values (?)");
+            statement.setString(1,"test");
+            statement.closeOnCompletion();
+            assertEquals(1,statement.executeUpdate());
+            statement = connection.prepareStatement("insert into organisation(name) values (?)");
+            statement.setString(1,"University of Canterbury");
+            statement.closeOnCompletion();
+            assertEquals(1,statement.executeUpdate());
+            statement = connection.prepareStatement("insert into organisation(name) values (?)");
+            statement.setString(1,"U.A");
+            statement.closeOnCompletion();
+            assertEquals(1,statement.executeUpdate());
+            statement = connection.prepareStatement("insert into organisation(name) values (?)");
+            statement.setString(1,"nonUniqueOrganisation");
+            statement.closeOnCompletion();
+            assertEquals(1,statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void populateDatabaseWithActors(Connection connection){
+        try{
+            PreparedStatement statement = connection.prepareStatement("insert into actor(firstname,lastname) values (?,?)");
+            statement.setString(1,"Katsuki");
+            statement.setString(2,"Bakugo");
+            statement.closeOnCompletion();
+            assertEquals(1,statement.executeUpdate());
+            statement = connection.prepareStatement("insert into actor(firstname,lastname) values (?,?)");
+            statement.setString(1,"All");
+            statement.setString(2,"Might");
+            statement.closeOnCompletion();
+            assertEquals(1,statement.executeUpdate());
+            statement = connection.prepareStatement("insert into actor(firstname,lastname) values (?,?)");
+            statement.setString(1,"Ochaco");
+            statement.setString(2,"Uraraka");
+            statement.closeOnCompletion();
+            assertEquals(1,statement.executeUpdate());
+            statement = connection.prepareStatement("insert into actor(firstname,lastname) values (?,?)");
+            statement.setString(1,"Tenya");
+            statement.setString(2,"Iida");
+            statement.closeOnCompletion();
+            assertEquals(1,statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

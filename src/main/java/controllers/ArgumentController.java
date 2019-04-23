@@ -23,7 +23,29 @@ public class ArgumentController {
 
     public void createArgument(Scanner scanner){
         Discourse discourse = discourseController.getDiscourseFromUser(scanner);
-        Argument argument = new Argument(discourse);
+        if(discourse == null){
+            argumentView.printNoDiscoursesMessage();
+        }
+        else {
+            Argument argument = new Argument(discourse);
+            List<Integer> startEndIndices = getValidStartEndIndices(scanner, argument);
+            argument.setStartIndex(startEndIndices.get(0));
+            argument.setEndIndex(startEndIndices.get(1));
+            String rephrasing = argumentView.getRephrasingFromUser(scanner);
+            while (!argument.isValidRephrasing(rephrasing)) {
+                //print invalid rephrasing message
+                rephrasing = argumentView.getRephrasingFromUser(scanner);
+            }
+            argument.setRephrasing(rephrasing);
+            if (!argument.insertArgumentIntoDatabase(argumentRepository)) {
+                argumentView.printFailureMessage();
+            } else {
+                argumentView.printSuccessMessage();
+            }
+        }
+    }
+
+    public List<Integer> getValidStartEndIndices(Scanner scanner, Argument argument){
         List<Integer> startEndIndices = argumentView.getIndices(scanner);
         Integer startIndex = startEndIndices.get(0);
         Integer endIndex= startEndIndices.get(1);
@@ -52,19 +74,6 @@ public class ArgumentController {
                 endIndex= startEndIndices.get(1);
             }
         }
-        argument.setStartIndex(startIndex);
-        argument.setEndIndex(endIndex);
-        String rephrasing = argumentView.getRephrasingFromUser(scanner);
-        while(!argument.isValidRephrasing(rephrasing)){
-            //print invalid rephrasing message
-            rephrasing = argumentView.getRephrasingFromUser(scanner);
-        }
-        argument.setRephrasing(rephrasing);
-        if(!argument.insertArgumentIntoDatabase(argumentRepository)){
-            argumentView.printFailureMessage();
-        }
-        else{
-            argumentView.printSuccessMessage();
-        }
+        return startEndIndices;
     }
 }

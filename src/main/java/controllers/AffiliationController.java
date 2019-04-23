@@ -67,28 +67,9 @@ public class AffiliationController {
                 while (!affiliation.setRole(role)) {
                     role = affiliationView.getRole(scanner);
                 }
-                String[] startEndDates = affiliationView.getStartEndDates(scanner);
-                String potentialStartDate = startEndDates[0];
-                String potentialEndDate = startEndDates[1];
-                boolean validStartEndDate = false;
-                while (!validStartEndDate) {
-                    if (!affiliation.isValidDate(potentialStartDate)) {
-                        affiliationView.printInvalidStartDateMessage();
-                    } else if (!affiliation.isValidDate(potentialEndDate)) {
-                        affiliationView.printInvalidEndDateMessage();
-                    } else if (!affiliation.isValidStartEndDate(potentialStartDate, potentialEndDate)) {
-                        affiliationView.printInvalidStartEndDateMessage();
-                    } else {
-                        validStartEndDate = true;
-                    }
-                    if (validStartEndDate == false) {
-                        startEndDates = affiliationView.getStartEndDates(scanner);
-                        potentialStartDate = startEndDates[0];
-                        potentialEndDate = startEndDates[1];
-                    }
-                }
-                affiliation.setStartDate(potentialStartDate);
-                affiliation.setEndDate(potentialEndDate);
+                String[] startEndDates = getValidStartEndDateFromUser(scanner, affiliation);
+                affiliation.setStartDate(startEndDates[0]);
+                affiliation.setEndDate(startEndDates[1]);
                 if (!affiliation.insertAffiliationIntoDatabase(affiliationRepository)) {
                     affiliationView.printFailureMessage();
                 } else {
@@ -96,6 +77,30 @@ public class AffiliationController {
                 }
             }
         }
+    }
+
+    public String[] getValidStartEndDateFromUser(Scanner scanner, Affiliation affiliation){
+        String[] startEndDates = affiliationView.getStartEndDates(scanner);
+        String potentialStartDate = startEndDates[0];
+        String potentialEndDate = startEndDates[1];
+        boolean validStartEndDate = false;
+        while (!validStartEndDate) {
+            if (!affiliation.isValidDate(potentialStartDate)) {
+                affiliationView.printInvalidStartDateMessage();
+            } else if (!affiliation.isValidDate(potentialEndDate)) {
+                affiliationView.printInvalidEndDateMessage();
+            } else if (!affiliation.isValidStartEndDate(potentialStartDate, potentialEndDate)) {
+                affiliationView.printInvalidStartEndDateMessage();
+            } else {
+                validStartEndDate = true;
+            }
+            if (validStartEndDate == false) {
+                startEndDates = affiliationView.getStartEndDates(scanner);
+                potentialStartDate = startEndDates[0];
+                potentialEndDate = startEndDates[1];
+            }
+        }
+        return startEndDates;
     }
 
     public List<Affiliation> getAffiliationsByActor(Actor actor){

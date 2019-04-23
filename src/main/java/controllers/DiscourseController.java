@@ -22,14 +22,23 @@ public class DiscourseController {
 
     public Discourse getDiscourseFromUser(Scanner scanner){
         List<Discourse> discourseList = discourseRepository.getDiscourses();
-        discourseView.printDiscourses(discourseList);
-        Integer id = discourseView.getDiscourseIdFromUser(scanner);
-        Discourse discourse = discourseRepository.getDiscourseById(id);
-        while(discourse == null) {
-            discourseView.printInvalidDiscourseIdMessage();
-            id = discourseView.getDiscourseIdFromUser(scanner);
-            discourse = discourseRepository.getDiscourseById(id);
+        if(discourseList.size() == 0){
+            return null;
         }
-        return discourse;
+        else {
+            discourseView.printDiscourses(discourseList);
+            Integer id = discourseView.getDiscourseIdFromUser(scanner);
+            Discourse discourse = discourseRepository.getDiscourseById(id);
+            while (discourse == null) {
+                discourseView.printInvalidDiscourseIdMessage();
+                id = discourseView.getDiscourseIdFromUser(scanner);
+                discourse = discourseRepository.getDiscourseById(id);
+            }
+            return discourse;
+        }
+    }
+
+    public DiscourseRepository getDiscourseRepository(){
+        return discourseRepository;
     }
 }

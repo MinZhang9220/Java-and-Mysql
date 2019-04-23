@@ -65,4 +65,8 @@ public class ArgumentView {
     public void printSuccessMessage(){
         System.out.println("The argument was successfully inserted into the database.");
     }
+
+    public void printNoDiscoursesMessage(){
+        System.out.println("There are no discourses in the database that can be used to extract an argument.");
+    }
 }

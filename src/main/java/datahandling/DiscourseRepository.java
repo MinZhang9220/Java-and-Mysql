@@ -55,6 +55,10 @@ public class DiscourseRepository {
         return discourses;
     }
 
+    public void setDiscourses(List<Discourse> discourseList) {
+        discourses = discourseList;
+    }
+
     /**
      * Find discourse by discourse id
      * @param discourseid
