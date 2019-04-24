@@ -33,9 +33,13 @@ public class Argument {
     public void setEndIndex(int endIndex){this.endIndex = endIndex;}
 
     /**
-     *
-     * @param startIndex
-     * @return
+     * The start index is invalid if the character before it isn't a sentence ending punctuation mark (. or ! or ?)
+     * The exception being the very start of the text, which is valid as a start index.
+     * If the start index is on whitespace characters, it is shifted to the left to the nearest non whitespace
+     * character, and returns the new index if it is valid.
+     * If it isn't valid, the function will return -1
+     * @param startIndex the start index to check for
+     * @return -1 if not valid, the start index if valid
      */
     public int isValidStartIndex(int startIndex){
         if(startIndex < 0 || startIndex >= discourse.getContent().length() - 2){
@@ -81,6 +85,14 @@ public class Argument {
         }
     }
 
+    /**
+     * Returns true if the argument has no duplicates. A duplicate argument is an argument with the same
+     * start index, end index and discourse id
+     * @param startIndex the start index
+     * @param endIndex the end index
+     * @param argumentRepository the repository used to query the database
+     * @return true if there's no duplicate argument, false if there is
+     */
     public boolean hasNoDuplicates(int startIndex, int endIndex, ArgumentRepository argumentRepository){
         int count = argumentRepository.getDuplicateArgumentCount(this, startIndex, endIndex);
         if(count > 0){
@@ -91,6 +103,11 @@ public class Argument {
         }
     }
 
+    /**
+     * A rephrasing is valid if it has at least one alphabet letter in it
+     * @param rephrasing the rephrasing string
+     * @return true if valid, false if not
+     */
     public boolean isValidRephrasing(String rephrasing){
         return rephrasing.matches(".*[a-zA-Z]+.*");
     }

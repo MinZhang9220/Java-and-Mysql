@@ -109,4 +109,8 @@ public class ActorController {
     public void setAffiliationController(AffiliationController affiliationController) {
         this.affiliationController = affiliationController;
     }
+
+    public ActorRepository getActorRepository() {
+        return actorRepository;
+    }
 }

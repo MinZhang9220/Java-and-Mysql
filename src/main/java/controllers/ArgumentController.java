@@ -73,7 +73,15 @@ public class ArgumentController {
                 startIndex = startEndIndices.get(0);
                 endIndex= startEndIndices.get(1);
             }
+            else{
+                startEndIndices.set(0, startIndex);
+                startEndIndices.set(1, endIndex);
+            }
         }
         return startEndIndices;
+    }
+
+    public ArgumentRepository getArgumentRepository() {
+        return argumentRepository;
     }
 }

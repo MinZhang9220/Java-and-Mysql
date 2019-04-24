@@ -24,14 +24,6 @@ public class Organisation {
     private String organisationName;
 
     /**
-     * Method that sets the name of the organisation
-     * @param organisationName the organisation's name
-     */
-    public void setOrganisationName(String organisationName){
-        this.organisationName = organisationName;
-    }
-
-    /**
      * Method that gets the name of the organisation
      * @return the organisation's name
      */
@@ -70,12 +62,6 @@ public class Organisation {
             return false;
         }
     }
-
-
-
-
-
-
 
 }
 

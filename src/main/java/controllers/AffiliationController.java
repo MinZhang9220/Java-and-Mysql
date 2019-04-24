@@ -106,4 +106,8 @@ public class AffiliationController {
     public List<Affiliation> getAffiliationsByActor(Actor actor){
         return affiliationRepository.getAffiliationsByActor(actor, organisationController.getOrganisationRepository());
     }
+
+    public AffiliationRepository getAffiliationRepository(){
+        return affiliationRepository;
+    }
 }

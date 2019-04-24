@@ -1,7 +1,5 @@
 package models;
 
-import java.util.ArrayList;
-
 /**
  * Sample data for discourse
  */
@@ -30,8 +28,5 @@ public class Discourse {
     public void setContent(String content){
         this.content = content;
     }
-
-
-
 
 }

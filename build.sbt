@@ -19,4 +19,3 @@ libraryDependencies += "org.junit.platform" % "junit-platform-runner" % "1.0.0-R
 libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % Test
 // https://mvnrepository.com/artifact/commons-io/commons-io
 libraryDependencies += "commons-io" % "commons-io" % "2.6"
-

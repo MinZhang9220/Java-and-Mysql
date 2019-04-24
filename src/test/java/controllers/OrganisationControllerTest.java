@@ -64,10 +64,10 @@ class OrganisationControllerTest {
             while (result.next()) {
                 count = result.getInt("total");
             }
-            Assert.assertTrue(count == 1);
+            assertEquals(1, count);
         } catch (SQLException e) {
             e.printStackTrace();
-            Assert.fail();
+            fail();
         }
     }
 
@@ -88,10 +88,10 @@ class OrganisationControllerTest {
             while (result.next()) {
                 count = result.getInt("total");
             }
-            Assert.assertTrue(count == 1);
+            assertEquals(1, count);
         } catch (SQLException e) {
             e.printStackTrace();
-            Assert.fail();
+            fail();
         }
     }
 
@@ -112,10 +112,10 @@ class OrganisationControllerTest {
             while (result.next()) {
                 count = result.getInt("total");
             }
-            Assert.assertTrue(count == 0);
+            assertEquals(0, count);
         } catch (SQLException e) {
             e.printStackTrace();
-            Assert.fail();
+            fail();
         }
     }
 
