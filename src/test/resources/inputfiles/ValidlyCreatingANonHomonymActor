@@ -1,0 +1,25 @@
+Welcome to Discourse System
+----------------------------
+
+
+
+-----------------------------------------
+|  CommandCode | Command Content        |
+-----------------------------------------
+|        1     | Create organisation    |
+-----------------------------------------
+|        2     | Create Actor           |
+-----------------------------------------
+|        3     | Register an affiliation|
+-----------------------------------------
+|        4     | Register an argument   |
+-----------------------------------------
+|        q     | Quit                   |
+-----------------------------------------
+Type your command code
+Please type the actor's first name.
+Please type the actor's last name.
+Please type the actor's level of trust on a scale of 0.0 to 1.0 (leave blank for unknown).
+The actor was successfully inserted into the database.
+Type your command code
+Exiting Application

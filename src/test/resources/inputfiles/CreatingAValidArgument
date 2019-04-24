@@ -1,0 +1,41 @@
+Welcome to Discourse System
+----------------------------
+
+
+
+-----------------------------------------
+|  CommandCode | Command Content        |
+-----------------------------------------
+|        1     | Create organisation    |
+-----------------------------------------
+|        2     | Create Actor           |
+-----------------------------------------
+|        3     | Register an affiliation|
+-----------------------------------------
+|        4     | Register an argument   |
+-----------------------------------------
+|        q     | Quit                   |
+-----------------------------------------
+Type your command code
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Content                                                                                                                                               | Start index|   End index|   id|
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|When he spoke to the Democratic National Convention in support of Senator John Kerrythe party’s presidential nominee against George W. Bush           |           0|         138|    1|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|As Supreme Allied Commander in Europe,Gen Eisenhower announced the D-Day landings at Normandy to the people of France and Western Europe.             |           0|         136|    2|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Delivered in secret before a rapt audience of Communist apparatchiks,this remarkable speech by a Soviet leader helped destroy Stalin’s reputation.    |           0|         146|    3|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|   Sometimes I do feel like I'm a failure. Like there's no hope for me? But even so, I'm not gonna give up. Ever!                                     |           0|         112|    4|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|I have to work harder than anyone else to make it! I'll never catch up otherwise! I want to be like you! Like you. The strongest hero.                |           0|         136|    5|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Enter a discourse id: 
+Enter a start index: 
+Enter an end index: 
+Enter a rephrasing: 
+The argument was successfully inserted into the database.
+Type your command code
+Exiting Application
