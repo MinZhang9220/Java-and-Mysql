@@ -1,0 +1,24 @@
+README
+
+Instructions to run the application
+
+The program should be opened as an sbt project.
+
+When the program is opened on Intellij, go into File -> Project Structure and make sure
+
+the Project SDK is 1.8 (Java 8) and the Project lanaguage level is 8.
+
+NOTE: If a lab computer is being used, enable Python Internet Enabler.
+
+1. Extract the FILE_NAME zip file into wherever you want to save the file 
+
+2. Open the Intellij IDEA application
+
+3. If an existing project is opened, click on File -> Close project to display the welcome screen of Intellij.
+
+4. Install the Scala plugin by clicking on Configure -> Plugins, typing Scala in the search bar and selecting it, installing it then restarting Intellij.
+
+5. Click on import project and navigate to the directory from the extracted zip file and select it. Select import project from external model and click on sbt then press next. 
+
+6. Check library sourcecs and uncheck sbt sources and uncheck "Use sbt shell for build and import." Select 1.8 (java 8) as your Project JDK (if you don't have java 8, download it here first through this link: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Leave Project format as .idea (directory based). Click on Finish.
+
