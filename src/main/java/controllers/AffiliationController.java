@@ -11,6 +11,10 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The affiliation controller uses the affiliation model and view to perform affiliation functionality,
+ * which is currently adding affiliations into the system and retrieving affiliations
+ */
 public class AffiliationController {
 
     /**
@@ -47,6 +51,7 @@ public class AffiliationController {
     /**
      * Method to create an affiliation. Requires there to be at least one organisation and actor in the database.
      * Validates the affiliation according to the ACs for story 2.
+     * If successful, creates a valid affiliation based on user input and stores it into the database
      * @param scanner the scanner used to receive user input
      */
     public void createAffiliation(Scanner scanner){
@@ -79,6 +84,14 @@ public class AffiliationController {
         }
     }
 
+    /**
+     * Method to get a valid start and end date in a string format from a user.
+     * A valid start and end date (as shown from the ACs) is a string in the format of
+     * yyyy-MM-dd or an empty string.
+     * @param scanner the scanner to receive user input
+     * @param affiliation the affiliation to be added
+     * @return A string array of size two where the first index is the start date and the second index is the end date
+     */
     public String[] getValidStartEndDateFromUser(Scanner scanner, Affiliation affiliation){
         String[] startEndDates = affiliationView.getStartEndDates(scanner);
         String potentialStartDate = startEndDates[0];

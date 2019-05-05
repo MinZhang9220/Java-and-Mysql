@@ -7,8 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The ApplicationManager is the brains of the program and where the program is run.
+ */
 public class ApplicationManager {
 
+    /**
+     * Main function of the application. Run this to launch the application.
+     * Application usage instructions will be printed on the terminal.
+     * @param args if "test" is passed in as an argument, the application will be run with the test database
+     */
     public static void main(String[] args) {
         SQLiteJDBC sqLiteJDBC = new SQLiteJDBC();
 

@@ -8,13 +8,29 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The actor controller uses the actor model and view to perform actor functionality,
+ * which is currently adding actors into the system and retrieving actors
+ */
 public class ActorController {
+
+    /**
+     * The actor repository used to make queries to the database
+     */
     private ActorRepository actorRepository;
+
+    /**
+     * The  actor view used to receive input and provide feedback to the user on their actions
+     */
     private ActorView actorView;
+
+    /**
+     * The affiliation controller used to link an affiliation to an actor
+     */
     private AffiliationController affiliationController;
 
     /**
-     * Consructor for the actor controller class.
+     * Constructor for the actor controller class.
      * Initialises the actor repository for talking to the sqlite database
      * and initialises actor view to update what the user sees.
      * @param connection the sqlite connection
@@ -26,8 +42,8 @@ public class ActorController {
 
 
     /**
-     * Method to create an actor following the ACs which can be found at
-     * https://eng-git.canterbury.ac.nz/gon12/epic-seng301-project/wikis/product-backlog
+     * Method to create an actor following the ACs specified.
+     * If successful, creates a valid actor based on user input and stores it into the database
      * @param scanner the scanner to receive user input
      */
     public void createActor(Scanner scanner){
@@ -64,6 +80,14 @@ public class ActorController {
         }
     }
 
+    /**
+     * Method to check if the user still wants to add an actor into the database
+     * if there is a homonym actor through their input from a scanner.
+     * Returns true if the user still wants to add the actor, false otherwise.
+     * @param scanner the scanner to receive user input
+     * @param actor the actor that has homonym actors
+     * @return true if the actor should be actor, false if the actor shouldn't
+     */
     public boolean getHomonymActorConfirmationFromUser(Scanner scanner, Actor actor){
         List<Actor> homonymActors = actor.getHomonymActors(actorRepository,affiliationController);
         String confirmationAnswer = "undefined";
