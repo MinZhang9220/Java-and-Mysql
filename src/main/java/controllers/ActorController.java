@@ -64,6 +64,12 @@ public class ActorController {
         }
     }
 
+    /**
+     * Get the confirmation for checking whether there is a homonymous actor in the database
+     * @param scanner
+     * @param actor
+     * @return true if there is a homonymous actor in the database,otherwise return false
+     */
     public boolean getHomonymActorConfirmationFromUser(Scanner scanner, Actor actor){
         List<Actor> homonymActors = actor.getHomonymActors(actorRepository,affiliationController);
         String confirmationAnswer = "undefined";
@@ -101,6 +107,8 @@ public class ActorController {
             return actor;
         }
     }
+
+
 
     public AffiliationController getAffiliationController() {
         return affiliationController;

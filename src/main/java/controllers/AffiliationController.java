@@ -79,6 +79,12 @@ public class AffiliationController {
         }
     }
 
+    /**
+     * Validating format of start date(yyyy-MM-dd) and end date(yyyy-MM-dd) which get from the user input.
+     * @param scanner
+     * @param affiliation
+     * @return If start date and end date are validation, return startEndDates.
+     */
     public String[] getValidStartEndDateFromUser(Scanner scanner, Affiliation affiliation){
         String[] startEndDates = affiliationView.getStartEndDates(scanner);
         String potentialStartDate = startEndDates[0];

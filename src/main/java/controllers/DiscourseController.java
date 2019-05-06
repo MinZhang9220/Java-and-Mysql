@@ -15,11 +15,20 @@ public class DiscourseController {
     private DiscourseView discourseView;
 
 
+    /**
+     * Constructor
+     * @param isTestDatabase
+     */
     public DiscourseController(boolean isTestDatabase){
         discourseRepository = new DiscourseRepository(isTestDatabase);
         discourseView = new DiscourseView();
     }
 
+    /**
+     * Get a discourse when user type discourse id from the keyboard
+     * @param scanner
+     * @return discourse
+     */
     public Discourse getDiscourseFromUser(Scanner scanner){
         List<Discourse> discourseList = discourseRepository.getDiscourses();
         if(discourseList.size() == 0){

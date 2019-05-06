@@ -15,12 +15,21 @@ public class ArgumentController {
     private ArgumentRepository argumentRepository;
     private ArgumentView argumentView;
 
+    /**
+     * Constructor
+     * @param connection
+     * @param discourseController
+     */
     public ArgumentController(Connection connection, DiscourseController discourseController){
         this.discourseController = discourseController;
         this.argumentRepository = new ArgumentRepository(connection);
         this.argumentView = new ArgumentView();
     }
 
+    /**
+     * Create an argument,all the related information get from user input.
+     * @param scanner
+     */
     public void createArgument(Scanner scanner){
         Discourse discourse = discourseController.getDiscourseFromUser(scanner);
         if(discourse == null){
@@ -45,6 +54,12 @@ public class ArgumentController {
         }
     }
 
+    /**
+     * Validating start indices and end indices which get from the user input.
+     * @param scanner
+     * @param argument
+     * @return startEndIndices
+     */
     public List<Integer> getValidStartEndIndices(Scanner scanner, Argument argument){
         List<Integer> startEndIndices = argumentView.getIndices(scanner);
         Integer startIndex = startEndIndices.get(0);
