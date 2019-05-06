@@ -14,6 +14,24 @@ NOTE: If a lab computer is being used, enable Python Internet Enabler.
 
 2. Open the Intellij IDEA application
 
+3. Click on File -> Open, navigate to the directory you extracted the file and open it
+
+4. When the program is opened on Intellij, go into File -> Project Structure and make sure the Project SDK is 1.8 (Java 8) and the Project lanaguage level is 8.
+
+5. Open the project directory, then open src, then open main, then open java, then open controllers
+
+6. Right click on ApplicationManager and click on Run 'ApplicationManager.main()' to start the application. Instructions on how to use the application will be shown on the command line.
+
+
+Project structure: TBD
+
+Testing: TBD (Show how to run all tests, show the total test coverage and explain the missing line coverage comes from sql exceptions)
+Explain how the tests work eg file input stuff
+
+
+
+
+
 3. If an existing project is opened, click on File -> Close project to display the welcome screen of Intellij.
 
 4. Install the Scala plugin by clicking on Configure -> Plugins, typing Scala in the search bar and selecting it, installing it then restarting Intellij.
