@@ -129,6 +129,11 @@ public class ActorRepository {
         }
     }
 
+    /**
+     * Get an actor from the database when the user given an actor id.
+     * @param actorid
+     * @return actor if the actor exists in database,otherwise return null
+     */
     public Actor getActorById(Integer actorid){
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("select * from actor where actorid = ?");

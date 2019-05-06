@@ -37,6 +37,14 @@ public class ArgumentRepository {
         }
     }
 
+    /**
+     * Get how many duplicate argument in database.
+     * The count for duplicate is 1 if there is an argument with the same discourse id, startIndex and endIndex exist in database,otherwise count will be 0.
+     * @param argument
+     * @param startIndex
+     * @param endIndex
+     * @return count
+     */
     public Integer getDuplicateArgumentCount(Argument argument, int startIndex, int endIndex){
         try {
             PreparedStatement statement = connection.prepareStatement(

@@ -66,6 +66,10 @@ public class OrganisationRepository {
         }
     }
 
+    /**
+     * Get a list with Organisations in it.
+     * @return organisationList or null if there are no organisations in database.
+     */
     public List<Organisation> getOrganisations(){
         try {
             PreparedStatement statement = connection.prepareStatement("select * from organisation");
@@ -82,6 +86,11 @@ public class OrganisationRepository {
         }
     }
 
+    /**
+     * Get a particular organisation when the user type an organisation name form keyboard.
+     * @param organisationName
+     * @return organisation or null if there is no organisation with the given name.
+     */
     public Organisation getOrganisationByName(String organisationName){
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("select * from organisation where name = ?");

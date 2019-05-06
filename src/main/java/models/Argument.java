@@ -66,6 +66,11 @@ public class Argument {
         }
     }
 
+    /**
+     * Check whether the given end indices by the user input is validation.
+     * @param endIndex
+     * @return endIndex if the end indices is validation otherwise return -1.
+     */
     public int isValidEndIndex(int endIndex){
         if(endIndex < 1 || endIndex > discourse.getContent().length() - 1){
             return -1;
