@@ -6,6 +6,10 @@ import models.Affiliation;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * View class for an actor. Used to provide feedback and receive input from a user
+ * when they interact with functionality related to actors
+ */
 public class ActorView {
 
     /**
@@ -101,6 +105,10 @@ public class ActorView {
         System.out.println("The actor was successfully inserted into the database.");
     }
 
+    /**
+     * Prints a list of actors from a list of actors with their actor id, first name and last name in a nice format
+     * @param actorList the list of actors to be printed
+     */
     public void printActors(List<Actor> actorList){
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("ACTORS");
@@ -111,6 +119,12 @@ public class ActorView {
         }
     }
 
+    /**
+     * Gets an integer based on the user input which is later checked if it is an actor id.
+     * Only accepts integers or prints a message that the input was not valid and prompts the user to try again
+     * @param scanner the scanner to receive user input
+     * @return an integer which should be the actor id
+     */
     public Integer getActorIdFromUser(Scanner scanner){
         System.out.println("Enter an actor id: ");
         while (!scanner.hasNextInt()) {
@@ -122,6 +136,10 @@ public class ActorView {
         return id;
     }
 
+    /**
+     * Prints a message telling the user that the actor id they entered was an invalid actor that doesn't exist
+     * in the database
+     */
     public void printInvalidActorIdMessage(){
         System.out.println("Invalid actor id entered. Please try again.");
     }

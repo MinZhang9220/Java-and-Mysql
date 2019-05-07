@@ -9,19 +9,40 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
+/**
+ * Model class for affiliations
+ * Used to represent a rephrasing extracted from a discourse's content
+ */
 public class Argument {
 
+    /**
+     * The rephrasing of an argument extracted from a discourse content
+     */
     private String rephrasing;
+    /**
+     * The discourse with content to be extracted from
+     */
     private Discourse discourse;
+    /**
+     * The start index of the content to be extracted
+     */
     private int startIndex;
+    /**
+     * The end index of the content to be extracted
+     */
     private int endIndex;
+    /**
+     * The list of punctuation marks that are considered to end a sentence
+     */
     private String[] endingPunctuationMarks = {"!", "?", "."};
 
     public Argument(Discourse discourse){
         this.discourse = discourse;
     }
 
+    /**
+     * Getters and setters
+     */
     public String getRephrasing(){ return this.rephrasing;}
     public Discourse getDiscourse(){return this.discourse;}
     public int getStartIndex(){return this.startIndex;}
@@ -67,9 +88,13 @@ public class Argument {
     }
 
     /**
-     * Check whether the given end indices by the user input is validation.
-     * @param endIndex
-     * @return endIndex if the end indices is validation otherwise return -1.
+     * The end index is invalid if the character it is on isn't a sentence ending punctuation mark (. or ! or ?)
+     * The exception being the very end of the text, which is valid as an end index.
+     * If the end index is on whitespace characters, it is shifted to the left to the nearest non whitespace
+     * character, and returns the new index if it is valid.
+     * If it isn't valid, the function will return -1
+     * @param endIndex the start index to check for
+     * @return -1 if not valid, the end index if valid
      */
     public int isValidEndIndex(int endIndex){
         if(endIndex < 1 || endIndex > discourse.getContent().length() - 1){
@@ -117,6 +142,11 @@ public class Argument {
         return rephrasing.matches(".*[a-zA-Z]+.*");
     }
 
+    /**
+     * Method to insert the argument into the database where it will be stored persistently
+     * @param argumentRepository the argument repository used to query the database
+     * @return true if the operation was successful, false if it wasn't
+     */
     public boolean insertArgumentIntoDatabase(ArgumentRepository argumentRepository){
         return argumentRepository.insertArgument(this);
     }

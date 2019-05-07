@@ -10,12 +10,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Model class for actors.
+ * Used to represent an actor in the system
+ */
 public class Actor {
 
+    /**
+     * The actor id (this should be retrieved from the database rather than set)
+     */
     private int actorid;
+    /**
+     * THe first name of the actor
+     */
     private String firstName;
+    /**
+     * THe last name of the actor
+     */
     private String lastName;
+    /**
+     * THe level of trust of the actor (0.0 to 1.0)
+     */
     private Double levelOfTrust;
+    /**
+     * The affiliations of the actor
+     */
     private List<Affiliation> affiliations;
 
     /**

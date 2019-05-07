@@ -16,18 +16,37 @@ NOTE: If a lab computer is being used, enable Python Internet Enabler.
 
 3. Click on File -> Open, navigate to the directory you extracted the file and open it
 
-4. When the program is opened on Intellij, go into File -> Project Structure and make sure the Project SDK is 1.8 (Java 8) and the Project lanaguage level is 8.
+4. When the program is opened on Intellij, go into File -> Project Structure and make sure the Project SDK is 1.8 (Java 8) and the Project language level is 8.
 
 5. Open the project directory, then open src, then open main, then open java, then open controllers
 
 6. Right click on ApplicationManager and click on Run 'ApplicationManager.main()' to start the application. Instructions on how to use the application will be shown on the command line.
 
 
-Project structure: TBD
+Project structure:
+The application uses the MVC architecture pattern with repository classes for accessing the database.
+The model classes contains business logic for the respective element they represent.
+The view classes are used to provide feedback and receive input from a user through a scanner.
+The controller classes decide what should be done with the user input, linking the model and view classes together.
+The repository classes provide a link to the SQLite database and is accessed through the model classes.
 
-Testing: TBD (Show how to run all tests, show the total test coverage and explain the missing line coverage comes from sql exceptions)
-Explain how the tests work eg file input stuff
+The application files can be found under src/main/java.
+The files related to running tests can be found under src/test/java.
+The resources used by the tests (feature files, input files and expected output files) can be found under src/test/resources.
+The SQLite script is located in the root directory.
+The main database (discourse.sqlite) and test database (testDatabase.sqlite) are located in the root directory.
 
+Testing:
+There are a total of 152 unit tests and
+
+TBD (Show how to run all tests, show the total test coverage and explain the missing line coverage comes from sql exceptions)
+TBD: Explain how the tests work eg file input stuff. Explain test and production database
+TBD: Javadoc top of test classes
+TBD: Explain that you need to run all tests and then run cucumber tests
+TBD: add fail() to sql exceptions in test
+TBD: change assertTrue/assertFalses to assertEquals unless it's a boolean
+TBD: Convert eng git into pdf
+TBD: Update hours spent for task estimation
 
 
 

@@ -5,9 +5,17 @@ import models.Discourse;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * View class for a discourse. Used to provide feedback and receive input from a user
+ * when they interact with functionality related to discourses
+ */
 public class DiscourseView {
 
 
+    /**
+     * Prints a list of discourses in a nicely formatted manner, displaying their content, start index and end index
+     * @param discourseList the list of discourses to be printed
+     */
     public void printDiscourses(List<Discourse> discourseList){
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -24,6 +32,12 @@ public class DiscourseView {
         }
     }
 
+    /**
+     * Gets a potential discourse ID based on user input.
+     * If the user does not input an integer they receive an error message and are prompted to try again
+     * @param scanner the scanner to receive user input
+     * @return the discourse id
+     */
     public Integer getDiscourseIdFromUser(Scanner scanner){
         System.out.println("Enter a discourse id: ");
         while (!scanner.hasNextInt()) {
@@ -35,6 +49,9 @@ public class DiscourseView {
         return id;
     }
 
+    /**
+     * Prints a message to the user that the discourse id that they inputted was invalid
+     */
     public void printInvalidDiscourseIdMessage(){
         System.out.println("Invalid discourse id entered. Please try again.");
     }

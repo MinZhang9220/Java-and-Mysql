@@ -7,10 +7,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * The argument repository used to make queries to the database
+ */
 public class ArgumentRepository {
 
+    /**
+     * The SQL connection which is the database connection
+     */
     private Connection connection;
 
+    /**
+     * Constructor for the argument repository
+     * @param connection the SQL connection used to make queries to the database
+     */
     public ArgumentRepository(Connection connection){
         this.connection = connection;
     }

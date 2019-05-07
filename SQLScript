@@ -1,0 +1,36 @@
+create table actor
+(
+	actorid INTEGER
+		primary key,
+	firstname VARCHAR(100) not null,
+	lastname VARCHAR(100) not null,
+	leveloftrust REAL default NULL
+);
+
+create table argument
+(
+	discourseid INTEGER not null
+		references discourse (discourseid),
+	startindex INTEGER not null,
+	endindex INTEGER not null,
+	rephrasing TEXT,
+	primary key (discourseid, startindex, endindex)
+);
+
+create table organisation
+(
+	name varchar(100)
+		primary key
+);
+
+create table affiliation
+(
+	actorid INTEGER not null
+		references actor,
+	organisationname VARCHAR(100) not null
+		references organisation,
+	role VARCHAR(100),
+	startdate TEXT,
+	enddate TEXT
+);
+

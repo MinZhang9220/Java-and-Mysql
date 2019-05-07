@@ -7,7 +7,10 @@ package models;
 
 import datahandling.OrganisationRepository;
 
-
+/**
+ * Model class for organisations.
+ * Used to represent an organisation in the system
+ */
 public class Organisation {
 
     /**

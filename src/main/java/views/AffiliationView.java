@@ -2,8 +2,17 @@ package views;
 
 import java.util.Scanner;
 
+/**
+ * View class for an affiliation. Used to provide feedback and receive input from a user
+ * when they interact with functionality related to affiliations
+ */
 public class AffiliationView {
 
+    /**
+     * Gets the role that an actor is affiliated with based on user input
+     * @param scanner the scanner to receive user input
+     * @return the role of the actor
+     */
     public String getRole(Scanner scanner){
         System.out.println("Enter a role: (leave blank for no role)");
         return scanner.nextLine();

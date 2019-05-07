@@ -8,16 +8,26 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The actor repository used to make queries to the database
+ */
 public class ActorRepository {
 
+    /**
+     * The SQL connection which is the database connection
+     */
     private Connection connection;
 
+    /**
+     * Constructor for the actor repository
+     * @param connection the SQL connection used to make queries to the database
+     */
     public ActorRepository(Connection connection){
         this.connection = connection;
     }
 
     /**
-     * Method to insert an organisation with a given organisation name in the database.
+     * Method to insert an actor with a first name, last name and level of trust into the database
      * @param actor the actor to be inserted
      * @return true if the organisation is successfully inserted, false otherwise
      */

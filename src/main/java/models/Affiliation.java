@@ -7,6 +7,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Model class for affiliations
+ * Used to link actors and organisations
+ */
 public class Affiliation {
 
     private Actor actor;

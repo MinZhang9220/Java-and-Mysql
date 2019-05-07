@@ -5,10 +5,22 @@ import models.Discourse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The argument repository used to retrieve discourses
+ */
 public class DiscourseRepository {
 
+    /**
+     * The list of discourses which is a substitute for the discourses within a database
+     */
     private List<Discourse> discourses= new ArrayList<>();
 
+    /**
+     * Constructor for the discourse repository
+     * Currently doesn't query the database but is constructed using java strings instead, as creating discourses
+     * isn't part of the stories.
+     * @param isTestDatabase if true, get the content of the test database, otherwise the production database
+     */
     public DiscourseRepository(boolean isTestDatabase){
         if(isTestDatabase) {
             //Populates the test database (this allows you to change the real database

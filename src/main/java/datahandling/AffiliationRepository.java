@@ -11,20 +11,28 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The affiliation repository used to make queries to the database
+ */
 public class AffiliationRepository {
 
+    /**
+     * The SQL connection which is the database connection
+     */
     private Connection connection;
 
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
+    /**
+     * Constructor for the affiliation repository
+     * @param connection the SQL connection used to make queries to the database
+     */
     public AffiliationRepository(Connection connection){
         this.connection = connection;
     }
 
     /**
-     * Method to insert an argument in the database.
-     * @param affiliation the argument to be inserted
-     * @return true if the argument is successfully inserted, false otherwise
+     * Method to insert an affiliation with an actor, organisation, role, start date and end date into the database.
+     * @param affiliation the affiliation to be inserted
+     * @return true if the affiliation is successfully inserted, false otherwise
      */
     public boolean insertAffiliation(Affiliation affiliation){
         try {

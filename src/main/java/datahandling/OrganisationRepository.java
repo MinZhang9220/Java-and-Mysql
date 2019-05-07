@@ -9,10 +9,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The organisation repository used to make queries to the database
+ */
 public class OrganisationRepository {
 
+    /**
+     * The SQL connection which is the database connection
+     */
     private Connection connection;
 
+    /**
+     * Constructor for the organisation repository
+     * @param connection the SQL connection used to make queries to the database
+     */
     public OrganisationRepository(Connection connection){
         this.connection = connection;
     }

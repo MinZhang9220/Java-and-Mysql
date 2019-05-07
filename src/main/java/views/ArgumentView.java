@@ -4,8 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * View class for an argument. Used to provide feedback and receive input from a user
+ * when they interact with functionality related to arguments
+ */
 public class ArgumentView {
 
+    /**
+     * Gets the start and end indices of an argument based on the user input.
+     * If the indices are not integers then the user is prompted with an error message and to try again
+     * @param scanner the scanner to receive user input
+     * @return an integer array where the first index is the start index and the second index is the end index
+     */
     public List<Integer> getIndices(Scanner scanner){
         System.out.println("Enter a start index: ");
         while (!scanner.hasNextInt()) {
@@ -27,6 +37,11 @@ public class ArgumentView {
         return startEndIndices;
     }
 
+    /**
+     * Gets the argument rephrasing of an argument based on the user's input
+     * @param scanner the scanner to receive user input
+     * @return the rephrasing string
+     */
     public String getRephrasingFromUser(Scanner scanner){
         System.out.println("Enter a rephrasing: ");
         return scanner.nextLine();
@@ -66,6 +81,9 @@ public class ArgumentView {
         System.out.println("The argument was successfully inserted into the database.");
     }
 
+    /**
+     * Prints a message telling the user that there are no discourses in the database
+     */
     public void printNoDiscoursesMessage(){
         System.out.println("There are no discourses in the database that can be used to extract an argument.");
     }
